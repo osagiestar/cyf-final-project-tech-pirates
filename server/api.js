@@ -50,7 +50,7 @@ router.get('/login', (req, res) => {
   });
 
 router.get("/oauth2", (_, res, next) => {
-	res.send('Hello<br><a href="/login">Log in with Github</a>');
+	res.send('Hello<br><a href="/api/login">Log in with Github</a>');
 });
 
 router.get("/", (_, res, next) => {
