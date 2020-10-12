@@ -29,7 +29,7 @@ router.get('/login', (req, res) => {
 });
 
  // Callback service parsing the authorization token and asking for the access token
- app.get('/callback', async (req, res) => {
+ router.get('/callback', async (req, res) => {
     const { code } = req.query;
     const options = {
       code,
