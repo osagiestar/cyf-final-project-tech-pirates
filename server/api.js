@@ -21,7 +21,7 @@ const client = new AuthorizationCode({
 
 const authorizationUri = client.authorizeURL({
 	redirect_uri: 'https://cyf-final-project-pgsql.herokuapp.com/api/callback',
-	scope: 'notifications',
+	scope: 'user:email',
 	state: '3(#0/!~',
 });
 
