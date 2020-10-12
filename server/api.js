@@ -20,7 +20,7 @@ const client = new AuthorizationCode({
 });
 
 const authorizationUri = client.authorizeURL({
-	redirect_uri: 'https://cyf-final-project-pgsql.herokuapp.com/callback',
+	redirect_uri: 'https://cyf-final-project-pgsql.herokuapp.com/api/callback',
 	scope: 'notifications',
 	state: '3(#0/!~',
 });
@@ -54,12 +54,13 @@ router.get("/oauth2", (_, res, next) => {
 });
 
 router.get("/", (_, res, next) => {
-	Connection.connect((err) => {
-		if (err) {
-			return next(err);
-		}
-		res.json({ message: "Hello, world!" });
-	});
+	// Connection.connect((err) => {
+	// 	if (err) {
+	// 		return next(err);
+	// 	}
+	// 	r
+	// });
+	res.json({ message: "Hello, world!" });
 });
 
 
