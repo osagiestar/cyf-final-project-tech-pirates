@@ -49,7 +49,7 @@ router.get('/login', (req, res) => {
     }
   });
 
-router.get("oauth2/", (_, res, next) => {
+router.get("/oauth2", (_, res, next) => {
 	res.send('Hello<br><a href="/login">Log in with Github</a>');
 });
 
