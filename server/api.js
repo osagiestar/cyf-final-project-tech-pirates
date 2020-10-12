@@ -3,6 +3,8 @@ import { Router } from "express";
 
 import { Connection } from "./db";
 
+import { AuthorizationCode } from "simple-oauth2"
+
 const router = new Router();
 
 const client = new AuthorizationCode({
