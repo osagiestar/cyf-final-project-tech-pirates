@@ -1,39 +1,35 @@
 import "./App.css";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import Heading from "./Heading";
 import UserLogoutPage from "./components/UserLogoutPage";
+import WelcomePage from "./components/WelcomePage";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
-  return (
+  // return (
+  //   <div className="container">
+  //     <div>
+  //       <Heading />
+  //     </div>
+  //     <WelcomePage />
+  //     <UserLogoutPage />
+  //   </div>
+  // );
+
+return (
+  <BrowserRouter>
     <div className="container">
       <div>
         <Heading />
       </div>
-      <div>
-        <h1>
-          <span className="font-weight-bold">Welcome!</span>
-        </h1>
-
-        <p className="first-line">
-          This is an attendance register for CYF classes
-        </p>
-
+      <div className="connect-components">
+        <Switch>
+          <Route exact path="/" component={WelcomePage} />
+          <Route exact path="/logout" component={UserLogoutPage} />
+        </Switch>
       </div>
-      <div>
-        <form className="input">
-          <FormGroup>
-            <div className="email">
-              <input type="email" placeholder="Email/User name"></input>
-
-              <input type="Password" placeholder="Password"></input>
-            </div>
-          </FormGroup>
-          <button className="button">Sign in</button>
-        </form>
-      </div>
-      <UserLogoutPage />
     </div>
-  );
+  </BrowserRouter>
+);
 }
 
 export default App;
