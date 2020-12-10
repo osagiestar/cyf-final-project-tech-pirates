@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const UserLogoutPage = () => {
 
@@ -9,7 +10,7 @@ const UserLogoutPage = () => {
           {" "}
           We hope you enjoy coding with us and learn loads in this session{" "}
         </p>
-        Logout 
+        <Link to= {'/'} className= "page-link"> Logout </Link>
       </div>
      
         
