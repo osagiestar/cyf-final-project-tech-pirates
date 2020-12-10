@@ -12,11 +12,9 @@ app.get("/", function(req,res){
     res.send("Welcome")
 })
 
-app.get("/", function (req, res) {
+app.get("/users", function (req, res) {
   res.send("Welcome");
 });
-app.get("/", function (req, res) {
-  res.send("Welcome");
-});
+
 app.listen(PORT, () => console.log(`App listening on port ${PORT || 3000}`));
 
