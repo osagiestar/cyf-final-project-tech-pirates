@@ -17,6 +17,7 @@ function App() {
         <p className="first-line">
           This is an attendance register for CYF classes
         </p>
+
       </div>
       <div>
         <form className="input">
