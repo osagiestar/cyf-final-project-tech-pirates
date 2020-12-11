@@ -14,15 +14,28 @@ const WelcomePage = () => {
         </p>
       </div>
       <div>
-        <form className="input">
+        <form className="input" action="/login" method="POST">
           <FormGroup>
             <div className="email">
-              <input type="email" placeholder="Email/User name"></input>
-
-              <input type="Password" placeholder="Password"></input>
+              <label for="email">Email</label>
+              <input
+                type="email"
+                placeholder="user name or email"
+                name="email"
+                required
+              ></input>
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input
+                type="Password"
+                placeholder="Password"
+                name="password"
+                required
+              ></input>
             </div>
           </FormGroup>
-          <button className="button">Sign in</button>
+          <button className="button" type="submit" >Login</button>
         </form>
       </div>
     </div>
