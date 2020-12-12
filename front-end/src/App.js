@@ -3,6 +3,7 @@ import Heading from "./Heading";
 import UserLogoutPage from "./components/UserLogoutPage";
 import WelcomePage from "./components/WelcomePage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Welcome from "./Welcome.js";
 
 function App() {
   // return (
@@ -14,7 +15,6 @@ function App() {
   //     <UserLogoutPage />
   //   </div>
   // );
-
 return (
   <BrowserRouter>
     <div className="container">
@@ -27,6 +27,7 @@ return (
           <Route exact path="/logout" component={UserLogoutPage} />
         </Switch>
       </div>
+      <div><Welcome /></div>
     </div>
   </BrowserRouter>
 );
