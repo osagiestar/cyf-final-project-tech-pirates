@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-const WelcomePage = () => {
+const WelcomePage = ({onLogin}) => {
+  const [email,setEmail]=useState("");
+
+  const [password,setPassword]=useState("")
+
+
+  const onLogIn = ()=>{
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+      headers: { "Content-Type": "application/json" },
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+      onLogin(data)
+    });
+  }
   return (
     <div className="container">
       <div>
@@ -14,29 +33,33 @@ const WelcomePage = () => {
         </p>
       </div>
       <div>
-        <form className="input" action="/login" method="POST">
-          <FormGroup>
-            <div className="email">
-              <label for="email">Email</label>
-              <input
-                type="email"
-                placeholder="user name or email"
-                name="email"
-                required
-              ></input>
-            </div>
-            <div>
-              <label for="password">Password</label>
-              <input
-                type="Password"
-                placeholder="Password"
-                name="password"
-                required
-              ></input>
-            </div>
-          </FormGroup>
-          <button className="button" type="submit" >Login</button>
-        </form>
+        <FormGroup>
+          <div className="email">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              placeholder="user name or email"
+              value = {email}
+              name="email"
+              onChange= {event=>setEmail(event.target.value)}
+              required
+            ></input>
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input
+              type="Password"
+              placeholder="Password"
+              value={password}
+              name="password"
+              onChange= {event=>setPassword(event.target.value)}
+              required
+            ></input>
+          </div>
+        </FormGroup>
+        <button className="button" onClick={onLogIn}>
+          Login
+        </button>
       </div>
     </div>
   );
