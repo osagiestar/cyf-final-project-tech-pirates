@@ -5,7 +5,7 @@ const cors = require("cors")
 const { Pool } = require("pg");
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3000;
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -43,4 +43,4 @@ app.post("/login", function (req, res) {
     });
 });
 
-app.listen(PORT, () => console.log(`App listening on port ${PORT || 3001}`));
+app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
