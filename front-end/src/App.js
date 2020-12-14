@@ -1,23 +1,29 @@
 import "./App.css";
+import React, { useState } from "react";
 import UserLogoutPage from "./components/UserLogoutPage";
 import WelcomePage from "./components/WelcomePage";
 import Welcome from "./components/Welcome";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="container">
-        <div className="connect-components">
-          <Switch>
-            <Route exact path="/" component={WelcomePage} />
-            <Route exact path="/welcome" component={Welcome} />
-            <Route exact path="/logout" component={UserLogoutPage} />
-          </Switch>
-        </div>
+  const [user,setUser] = useState()
+  
+return (
+  <BrowserRouter>
+    <div className="container">
+      <div className="connect-components">
+        <Switch>
+          <Route exact path="/">
+            {" "}
+            <WelcomePage onLogin = {setUser}/>
+          </Route>
+          <Route exact path="/welcome" component={Welcome} />
+          <Route exact path="/logout" component={UserLogoutPage} />
+        </Switch>
       </div>
-    </BrowserRouter>
-  );
+    </div>
+  </BrowserRouter>
+);
 }
 
 export default App;
