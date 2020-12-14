@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { Link } from "react-router-dom";
 
-const WelcomePage = () => {
+const WelcomePage = ({onLogin}) => {
+  const [email,setEmail]=useState("");
+
+  const [password,setPassword]=useState("")
+
+
+  const onLogIn = ()=>{
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+      headers: { "Content-Type": "application/json" },
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+      onLogin(data)
+    });
+  }
   return (
     <div className="container">
       <header>
@@ -23,19 +41,33 @@ const WelcomePage = () => {
         </p>
       </div>
       <div>
-        <form className="input">
-          <FormGroup>
-            <div className="email">
-              <input type="email" placeholder="Email/User name"></input>
-
-              <input type="Password" placeholder="Password"></input>
-            </div>
-          </FormGroup>
-          <Link to={"/welcome"} className="button">
-            {" "}
-            Sign in{" "}
-          </Link>{" "}
-        </form>
+        <FormGroup>
+          <div className="email">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              placeholder="user name or email"
+              value = {email}
+              name="email"
+              onChange= {event=>setEmail(event.target.value)}
+              required
+            ></input>
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input
+              type="Password"
+              placeholder="Password"
+              value={password}
+              name="password"
+              onChange= {event=>setPassword(event.target.value)}
+              required
+            ></input>
+          </div>
+        </FormGroup>
+        <button className="button" onClick={onLogIn}>
+          Login
+        </button>
       </div>
     </div>
   );
