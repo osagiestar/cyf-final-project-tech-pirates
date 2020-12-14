@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { FaRegUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const UserLogoutPage = () => {
+const Welcome = () => {
   return (
     <div className="App">
       <div className="nav">
@@ -20,21 +20,21 @@ const UserLogoutPage = () => {
             />
           </li>
           <li>
-            <Link to= {'/'} className="Star">Logout</Link>
+            <Link to={"/"} className="Star">
+              Logout
+            </Link>
           </li>
         </ul>
       </div>
-      
-      <div>
-        <h2> Welcome to the class! </h2>
-        <p>
-          {" "}
-          We hope you enjoy coding with us and learn loads in this session{" "}
-        </p>
-      </div>
-    </div> 
-    );
+
+      <h2>Welcome to the class</h2>
+      <p>You are now logged in </p>
+      <Link to={"/logout"} className="page-link">
+        {" "}
+        More ahead{" "}
+      </Link>
+    </div>
+  );
 }
 
-
-export default UserLogoutPage;
+export default Welcome;
