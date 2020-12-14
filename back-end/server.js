@@ -43,4 +43,10 @@ app.post("/login", function (req, res) {
     });
 });
 
+app.get("/class", function (req, res) {
+  pool.query("SELECT * FROM class", (error, result) => {
+    res.json(result.rows);
+  });
+});
+
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
