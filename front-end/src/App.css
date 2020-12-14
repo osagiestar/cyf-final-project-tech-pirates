@@ -4,7 +4,7 @@
 
 .App-logo {
   height: 20vmin;
-  width: 200px;
+  width: 200px
 }
 
 /*@media (prefers-reduced-motion: no-preference) {
@@ -27,16 +27,25 @@
 .App-link {
   color: #61dafb;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-text-align: center;
+  text-align: center;
 }
+
 .button {
   background-color: red;
   color: white;
 }
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row
+}
+
 /*@keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
