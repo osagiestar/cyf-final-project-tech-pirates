@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-const WelcomePage = ({onLogin}) => {
+const Login = ({onLogin}) => {
   const [email,setEmail]=useState("");
-
   const [password,setPassword]=useState("")
 
-
   const onLogIn = ()=>{
-    fetch("http://localhost:3000/login", {
+    fetch("http://localhost:3002/login", {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -73,4 +71,4 @@ const WelcomePage = ({onLogin}) => {
   );
 };
 
-export default WelcomePage;
+export default Login;
