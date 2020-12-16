@@ -1,25 +1,22 @@
 const express = require("express");
 const app = express();
-const cors = require("cors")
+const cors = require("cors");
 
 const { Pool } = require("pg");
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
-  user: "S225693",
+  user: "osagie",
   host: "localhost",
   database: "attendance",
-  password: "lucianome1",
+  password: process.env.DB_PASSWORD,
   port: 5432,
 });
-
-// const loginProfile = require("./front-end/src/components/WelcomePage"); // API routes for Student Profiles Screen
-// app.use(loginProfile);
 
 app.post("/login", function (req, res) {
   //console.log(req.body)
@@ -43,6 +40,7 @@ app.post("/login", function (req, res) {
     });
 });
 
+
 app.get("/class", function (req, res) {
   pool.query("SELECT * FROM class", (error, result) => {
     res.json(result.rows);
@@ -54,5 +52,27 @@ app.get("users/location/class/session", function (req, res) {
     res.json(result.rows);
   });
 });
+
+app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
+app.get("/users/:studentId/class", (req, res) => {
+  console.log("student");
+  const studentId = req.params.studentId;
+  const user_type = req.query.user_type;
+  const username = req.query.username;
+
+  // query1 = "SELECT users.id FROM users INNER JOIN user_type ON users.user_type = user_type.id WHERE users.id = $1", [studentId];
+  
+  const classQuery =
+    "SELECT class.name FROM users, class WHERE user_type = $1 AND users.name = $2 AND users.id = $3";
+
+  pool
+  .query(classQuery, [user_type, username] )
+   if (result.rows.length > 0) {
+        return res.json(result.rows[0]);
+      } else {
+        return res.status(404).send("user not available");
+      }
+ 
+}); 
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
