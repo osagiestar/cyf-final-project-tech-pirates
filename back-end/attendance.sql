@@ -68,3 +68,5 @@ INSERT INTO location(name) VALUES('Manchester');
 INSERT INTO location(name) VALUES('London');
 INSERT INTO location(name) VALUES('WestMidland');
 
+//class selection 
+select users.name, user_type.type, location.name, class.name, session.name from users, user_type, location, class,session where user_type.id=users.user_type and location.id = class.location_id and class.id = session.class_id and users.id = 3;
