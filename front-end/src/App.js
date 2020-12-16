@@ -1,29 +1,26 @@
 import "./App.css";
 import React, { useState } from "react";
-import UserLogoutPage from "./components/UserLogoutPage";
-import WelcomePage from "./components/WelcomePage";
+import Login from "./components/Login";
 import Welcome from "./components/Welcome";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Header from "./components/Header";
 
 function App() {
   const [user,setUser] = useState()
-  
-return (
-  <BrowserRouter>
-    <div className="container">
-      <div className="connect-components">
-        <Switch>
-          <Route exact path="/">
-            {" "}
-            <WelcomePage onLogin = {setUser}/>
-          </Route>
-          <Route exact path="/welcome" component={Welcome} />
-          <Route exact path="/logout" component={UserLogoutPage} />
-        </Switch>
-      </div>
-    </div>
-  </BrowserRouter>
-);
+  const logout = () => {
+    setUser(null);
+  }
+
+  if(!user) {
+      return <Login onLogin={setUser} />;
+  }
+
+   return (
+    <> 
+    <Header onLogout = {logout} user= {user} />
+    {
+      user && user.user_type == 3 && <Welcome />   }
+    </>
+  );
 }
 
 export default App;

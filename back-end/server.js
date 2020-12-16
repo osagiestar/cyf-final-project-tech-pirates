@@ -40,19 +40,18 @@ app.post("/login", function (req, res) {
     });
 });
 
+// API to allow a student choose a session to attend
 app.get("/users/:studentId/class", (req, res) => {
   console.log("student");
   const studentId = req.params.studentId;
   const user_type = req.query.user_type;
   const username = req.query.username;
-
-  // query1 = "SELECT users.id FROM users INNER JOIN user_type ON users.user_type = user_type.id WHERE users.id = $1", [studentId];
   
   const classQuery =
     "SELECT class.name FROM users, class WHERE user_type = $1 AND users.name = $2 AND users.id = $3";
-
+    
   pool
-  .query(classQuery, [user_type, username] )
+  .query(classQuery, [user_type, username, studentId] )
    if (result.rows.length > 0) {
         return res.json(result.rows[0]);
       } else {
