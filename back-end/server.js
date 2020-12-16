@@ -22,7 +22,7 @@ const pool = new Pool({
 // app.use(loginProfile);
 
 app.post("/login", function (req, res) {
-  console.log(req.body)
+  //console.log(req.body)
   const email = req.body.email;
   const password = req.body.password;
   if (!req.body.email || !req.body.password) {
@@ -45,6 +45,12 @@ app.post("/login", function (req, res) {
 
 app.get("/class", function (req, res) {
   pool.query("SELECT * FROM class", (error, result) => {
+    res.json(result.rows);
+  });
+});
+
+app.get("users/location/class/session", function (req, res) {
+  pool.query("select users.name, user_type.type, location.name, class.name, session.name from users, user_type, location, class,session where user_type.id=users.user_type and location.id = class.location_id and class.id = session.class_id and users.id = 3", (error, result) => {
     res.json(result.rows);
   });
 });
