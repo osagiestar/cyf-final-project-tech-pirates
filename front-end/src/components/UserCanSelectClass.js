@@ -24,6 +24,9 @@ const UserCanSelectClass = ({onLogout}) => {
                       </option>
                   </select>
               </div>
+              <div>
+              <button className="Star">Login to this class</button>
+              </div>
             </div>
           );
         
