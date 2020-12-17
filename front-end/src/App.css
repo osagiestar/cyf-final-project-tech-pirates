@@ -39,3 +39,9 @@
   display: flex;
   flex-direction: row
 }
+.Space {
+  margin: 30px;
+}
+select {
+  width: 220px;
+}
