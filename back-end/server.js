@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
-  user: "tester",
+  user: "osagie",
   host: "localhost",
   database: "attendance",
   password: process.env.DB_PASSWORD,
