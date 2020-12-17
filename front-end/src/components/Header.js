@@ -7,7 +7,7 @@ const Header = ({onLogout, user}) => {
       <ul>
         <li>
           <FaRegUser size={25} />
-          Username {user.name}
+          Username
         </li>
         <li>
           <img

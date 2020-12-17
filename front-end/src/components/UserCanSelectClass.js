@@ -1,27 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 import { FaRegUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Header from "./Header"
-const UserCanSelectClass = ({onLogout}) => {
 
+
+
+const UserCanSelectClass = ({onLogout}) => {
+    const [class,setClass] =useState("");
+
+    const classSelect = ()=>{
+        fetch('http://localhost:3000/users/:studentId/class/session', {
+            method:"GET",
+        headers:{"content-Type": "application-Json"},
+    })
+    .then((res)=>res.json(
+       
+    ))
+    .then((data)=> {classSelect(data)});
+    
         return (
             <div className="App">
-                <Header />
+               
               <h2>Please choose the class that you want to log into from the list below</h2>
               <p>choose a class:</p>
               <div>
                   <select>
-                      <option>
-                         React
-                      </option>
-                      <option>
-                          javascript
-                      </option>
-                      <option>
-                          node
-                      </option>
-                      <option>
-                          SQL
+                      <option value = {class}
+                      onChange = {setClass}
+                      >
                       </option>
                   </select>
               </div>
