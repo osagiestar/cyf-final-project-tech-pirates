@@ -2,7 +2,6 @@ import React from "react";
 import { FaRegUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Header from "./Header"
-
 const UserCanSelectClass = ({onLogout}) => {
 
         return (
