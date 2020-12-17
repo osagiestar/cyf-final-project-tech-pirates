@@ -11,11 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
-<<<<<<< HEAD
   user: "S225693",
-=======
-  user: "tester",
->>>>>>> master
   host: "localhost",
   database: "attendance",
   password: process.env.DB_PASSWORD,
@@ -44,14 +40,9 @@ app.post("/login", function (req, res) {
     });
 });
 
-<<<<<<< HEAD
 
 // API to allow a student choose a session to attend
 app.get("/class/session", function (req, res) {
-=======
-// API to allow a student choose his/her class
-app.get("/class", function (req, res) {
->>>>>>> master
   pool.query("SELECT * FROM class", (error, result) => {
     res.json(result.rows);
   });
