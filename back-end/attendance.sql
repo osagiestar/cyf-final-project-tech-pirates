@@ -1,5 +1,5 @@
 
-drop table if exists user;
+drop table if exists users;
 drop table if exists user_type;
 drop table if exists attendance;
 drop table if exists session;
@@ -76,16 +76,10 @@ INSERT INTO session(name,session_date,class_id) VALUES('Node2','05/07/2020',1);
 INSERT INTO session(name,session_date,class_id) VALUES('HTML/CSS3','20/03/2020',3);
 INSERT INTO session(name,session_date,class_id) VALUES('HTML/CSS2','14/03/2020',3);
 
-
-
 INSERT INTO class(name,location_id) VALUES('WestMidland',2);
 INSERT INTO class(name,location_id) VALUES('London',1);
 INSERT INTO class(name,location_id) VALUES('Manchester',3);
 
-
 INSERT INTO location(name) VALUES('Manchester');
 INSERT INTO location(name) VALUES('London');
 INSERT INTO location(name) VALUES('WestMidland');
-
-//class selection 
-select users.name, user_type.type, location.name, class.name, session.name from users, user_type, location, class,session where user_type.id=users.user_type and location.id = class.location_id and class.id = session.class_id and users.id = 3;
