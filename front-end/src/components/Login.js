@@ -6,7 +6,7 @@ const Login = ({onLogin}) => {
   const [password,setPassword]=useState("")
 
   const onLogIn = ()=>{
-    fetch("http://localhost:3002/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       body: JSON.stringify({
         email: email,
