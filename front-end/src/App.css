@@ -47,6 +47,13 @@
   font-weight: bold;
 }
 
+.Space {
+  margin: 30px;
+}
+select {
+  width: 220px;
+}
+
 .nav ul li {
   color:black;
  margin-top: 10px;
@@ -58,3 +65,4 @@
  font-weight: bolder;  
  border-radius: 5px;
 }
+
