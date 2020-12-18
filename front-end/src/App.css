@@ -66,3 +66,10 @@ select {
  border-radius: 5px;
 }
 
+.Star-clicked {
+  background-color: green;
+  color: white;
+  font-weight: bolder;
+  border-radius: 5px;
+}
+
