@@ -5,8 +5,10 @@
 }
 
 .App-logo {
+  margin-top: 100px;
+  
   height: 20vmin;
-  width: 200px
+  width: 300px;
 }
 
 .App-header {
@@ -75,5 +77,9 @@ select {
   color: white;
   font-weight: bolder;
   border-radius: 5px;
+}
+.option{
+  box-sizing: 40px;
+  margin-top: 10px;
 }
 
