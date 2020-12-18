@@ -29,11 +29,11 @@ console.log(sessionSelect)
         return (<>
             <div className="App">
                
-              <h2>Please choose the class that you want to log into from the list below</h2>
-              <p>choose a class:</p>
+              <h2>Please sign into the session you want to attend</h2>
+              <h3>choose a session:</h3>
               <div>
                   <select value={sessionSelect} onChange={(event)=>setSessionSelect(event.target.value)} disabled={clicked} >
-                      <option value = {-1} disabled>Please select session</option>
+                      <option className="option" value = {-1} disabled>Please select session</option>
                       {session.map((item)=><option value = {item.id}>{item.name}</option>)}
                   </select>
                   
