@@ -61,20 +61,20 @@ INSERT INTO attendance(user_id,session_id) VALUES(1,5);
 INSERT INTO attendance(user_id,session_id) VALUES(2,3);
 INSERT INTO attendance(user_id,session_id) VALUES(4,2);
 
-INSERT INTO session(name,session_date,class_id) VALUES('JS1','12/04/2020',2);
-INSERT INTO session(name,session_date,class_id) VALUES('React3','19/05/2020',3);
-INSERT INTO session(name,session_date,class_id) VALUES('SQL2','25/08/2020',2);
-INSERT INTO session(name,session_date,class_id) VALUES('Node1','25/06/2020',1);
+INSERT INTO session(name,session_date,class_id) VALUES('JS1','2020-04-12',2);
+INSERT INTO session(name,session_date,class_id) VALUES('React3','09/05/2020',3);
+INSERT INTO session(name,session_date,class_id) VALUES('SQL2','05/08/2020',2);
+INSERT INTO session(name,session_date,class_id) VALUES('Node1','05/06/2020',1);
 INSERT INTO session(name,session_date,class_id) VALUES('SQL1','12/08/2020',2);
 INSERT INTO session(name,session_date,class_id) VALUES('HTML/CSS1','06/03/2020',3);
-INSERT INTO session(name,session_date,class_id) VALUES('JS3','25/04/2020',2);
+INSERT INTO session(name,session_date,class_id) VALUES('JS3','05/04/2020',2);
 INSERT INTO session(name,session_date,class_id) VALUES('Node3','12/07/2020',1);
-INSERT INTO session(name,session_date,class_id) VALUES('JS2','19/04/2020',2);
+INSERT INTO session(name,session_date,class_id) VALUES('JS2','09/04/2020',2);
 INSERT INTO session(name,session_date,class_id) VALUES('React2','12/05/2020',3);
 INSERT INTO session(name,session_date,class_id) VALUES('React1','05/05/2020',2);
 INSERT INTO session(name,session_date,class_id) VALUES('Node2','05/07/2020',1);
-INSERT INTO session(name,session_date,class_id) VALUES('HTML/CSS3','20/03/2020',3);
-INSERT INTO session(name,session_date,class_id) VALUES('HTML/CSS2','14/03/2020',3);
+INSERT INTO session(name,session_date,class_id) VALUES('HTML/CSS3','02/03/2020',3);
+INSERT INTO session(name,session_date,class_id) VALUES('HTML/CSS2','05/03/2020',3);
 
 INSERT INTO class(name,location_id) VALUES('WestMidland',2);
 INSERT INTO class(name,location_id) VALUES('London',1);
