@@ -15,7 +15,7 @@ const Welcome = ({ userId }) => {
     <div className="App">
       <h2>Welcome to the class</h2>
       <p>You are now logged in as a Student </p>
-      <button className="Star"> More ahead </button>
+      {/* <button className="Star"> More ahead </button> */}
       {/* <Class_select /> */}
       <UserCanSelectClass id={userId} setSessions={setSessions} />
     </div>
