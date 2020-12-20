@@ -42,10 +42,13 @@ app.post("/login", function (req, res) {
 
 
 // API to allow a student choose a session to attend
-app.get("/class/session", function (req, res) {
-  pool.query("SELECT * FROM class", (error, result) => {
-    res.json(result.rows);
-  });
+app.get("/attendance", function (req, res) {
+  pool.query(
+    "select users.name from users inner join attendance on users.id = attendance.user_id;",
+    (error, result) => {
+      res.json(result.rows);
+    }
+  );
 });
 
 app.get("users/location/class/session", function (req, res) {

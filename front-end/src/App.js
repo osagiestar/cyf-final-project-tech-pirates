@@ -2,7 +2,9 @@ import "./App.css";
 import React, { useState } from "react";
 import Login from "./components/Login";
 import Welcome from "./components/Welcome";
+import MentorWelcome from "./components/MentorWelcome";
 import Header from "./components/Header";
+import MentorContainer from "./components/MentorContainer";
 
 
 function App() {
@@ -20,6 +22,8 @@ console.log(user)
     <Header onLogout = {logout} user= {user} />
     {
       user && user.type === "Student" && <Welcome userId={user.id}/>   }
+      {
+      user && user.type === "Teacher" && <MentorContainer />   }
     </>
   );
 }
