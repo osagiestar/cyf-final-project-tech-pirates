@@ -14,12 +14,12 @@ function App() {
   if(!user) {
       return <Login onLogin={setUser} />;
   }
-
+console.log(user)
    return (
     <> 
     <Header onLogout = {logout} user= {user} />
     {
-      user && user.user_type == 3 && <Welcome />   }
+      user && user.type === "Student" && <Welcome userId={user.id}/>   }
     </>
   );
 }

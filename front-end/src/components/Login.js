@@ -6,7 +6,7 @@ const Login = ({onLogin}) => {
   const [password,setPassword]=useState("")
 
   const onLogIn = ()=>{
-    fetch("http://localhost:3002/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -41,24 +41,24 @@ const Login = ({onLogin}) => {
       <div>
         <FormGroup>
           <div className="email">
-            <label for="email">Email</label>
+            <label for="email"></label>
             <input
               type="email"
               placeholder="user name or email"
-              value = {email}
+              value={email}
               name="email"
-              onChange= {event=>setEmail(event.target.value)}
+              onChange={(event) => setEmail(event.target.value)}
               required
             ></input>
           </div>
           <div>
-            <label for="password">Password</label>
+            <label for="password"></label>
             <input
               type="Password"
               placeholder="Password"
               value={password}
               name="password"
-              onChange= {event=>setPassword(event.target.value)}
+              onChange={(event) => setPassword(event.target.value)}
               required
             ></input>
           </div>

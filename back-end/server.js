@@ -5,13 +5,15 @@ const cors = require("cors");
 const { Pool } = require("pg");
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
-  user: "osagie",
+
+//   user: "osagie",
+//   user: "S225693",
   host: "localhost",
   database: "attendance",
   password: process.env.DB_PASSWORD,
@@ -28,7 +30,7 @@ app.post("/login", function (req, res) {
 
   pool
     .query(
-      "SELECT * FROM users INNER JOIN user_type ON users.user_type = user_type.id WHERE email = $1 AND password = $2 ",
+      "SELECT users.id, users.email, users.name, user_type.type FROM users INNER JOIN user_type ON users.user_type = user_type.id WHERE email = $1 AND password = $2 ",
       [email, password]
     )
     .then((result) => {
@@ -40,8 +42,9 @@ app.post("/login", function (req, res) {
     });
 });
 
-// API to allow a student choose his/her class
-app.get("/class", function (req, res) {
+
+// API to allow a student choose a session to attend
+app.get("/class/session", function (req, res) {
   pool.query("SELECT * FROM class", (error, result) => {
     res.json(result.rows);
   });
@@ -58,16 +61,30 @@ app.get("users/location/class/session", function (req, res) {
 
 // API to allow a student choose a session to attend
 app.get("/users/:studentId/class/session", (req, res) => {
-  console.log("student"); 
+   
   const studentId = req.params.studentId;
+  console.log(studentId);
 
-  const classQuery =
-    "SELECT users.name, class.name, class.id, session.name FROM class, users, session WHERE users.class_id = class.id and users.id = $1";
-
+  const classQuery = "SELECT session.name,session.id FROM class inner join session on class.id = session.class_id inner join users on users.class_id = class.id where users.id = $1"; 
+    // "session.name FROM class, users, session WHERE users.class_id = class.id and session.class_id = class.id and users.id = $1";
+    //"SELECT session.name,session.id FROM class, users, session WHERE users.class_id = class.id and session.class_id = class.id and users.id = $1";
   pool
     .query(classQuery, [studentId])
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
   }); 
+  app.post("/users/:studentId/class/session", (req, res) => {
+    const studentId = req.params.studentId;
+    const sessionId = req.body.sessionId;
+    console.log(studentId,sessionId);
+
+    const classQuery ="insert into attendance (user_id,session_id) values ($1,$2)"
+  
+    pool
+      .query(classQuery, [studentId,sessionId])
+      .then((result) => res.json(result.rows))
+      .catch((e) => console.error(e));
+  }); 
+
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));

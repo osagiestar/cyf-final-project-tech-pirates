@@ -1,10 +1,14 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
+  margin-top: 100px;
+  
   height: 20vmin;
-  width: 200px
+  width: 300px;
 }
 
 .App-header {
@@ -36,6 +40,8 @@
 
 .nav{
   background-color: darkgray;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav ul {
@@ -64,5 +70,16 @@ select {
   color:white;
  font-weight: bolder;  
  border-radius: 5px;
+}
+
+.Star-clicked {
+  background-color: green;
+  color: white;
+  font-weight: bolder;
+  border-radius: 5px;
+}
+.option{
+  box-sizing: 40px;
+  margin-top: 10px;
 }
 
