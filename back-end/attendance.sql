@@ -46,10 +46,10 @@ CREATE TABLE location (
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('guy.crawford@email.com','IwasBorn1965','Guy Crawford',1,1);
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('jamal@email.com','IwasBorn1965','Jamal',2,2);
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('sara2@email.com','IwasBorn1965','Sara',3,1);
-INSERT INTO users(email,password, name, user_type,class_id) VALUES ('jane.miller@email.com','IwasBorn1965','Jane Miller',3,1);
-INSERT INTO users(email,password, name, user_type,class_id) VALUES ('laura20@email.com','IwasBorn1965','Laura',2,1);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('jane.miller@email.com','IwasBorn1965','Jane Miller',3,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('laura20@email.com','IwasBorn1965','Laura',3,3);
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('fred.smith@email.com','IwasBorn1965','Fred Smith',3,1);
-INSERT INTO users(email,password, name, user_type,class_id) VALUES ('amanda.lake@email.com','IwasBorn1965','Amanda Lake',2,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('amanda.lake@email.com','IwasBorn1965','Amanda Lake',3,2);
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('mike.jordan@email.com','IwasBorn1965','Mike Jordan',3,3);
 
 
@@ -57,9 +57,15 @@ INSERT INTO user_type(type) VALUES('Admin');
 INSERT INTO user_type(type) VALUES('Teacher');
 INSERT INTO user_type(type) VALUES('Student');
 
-INSERT INTO attendance(user_id,session_id) VALUES(1,5);
-INSERT INTO attendance(user_id,session_id) VALUES(2,3);
+INSERT INTO attendance(user_id,session_id) VALUES(3,5);
+INSERT INTO attendance(user_id,session_id) VALUES(5,3);
 INSERT INTO attendance(user_id,session_id) VALUES(4,2);
+INSERT INTO attendance(user_id,session_id) VALUES(3,5);
+INSERT INTO attendance(user_id,session_id) VALUES(4,3);
+INSERT INTO attendance(user_id,session_id) VALUES(5,2);
+INSERT INTO attendance(user_id,session_id) VALUES(6,5);
+INSERT INTO attendance(user_id,session_id) VALUES(7,3);
+INSERT INTO attendance(user_id,session_id) VALUES(8,2);
 
 INSERT INTO session(name,session_date,class_id) VALUES('JS1','2020-04-12',2);
 INSERT INTO session(name,session_date,class_id) VALUES('React3','09/05/2020',3);
