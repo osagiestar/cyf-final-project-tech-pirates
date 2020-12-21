@@ -1,15 +1,18 @@
 import React from "react";
 
 
-const MentorWelcome = ({ onCheckStudentClick }) => {
+const MentorWelcome = ({ onCheckStudentClick,onCheckSessionClick }) => {
   return (
     <div className="App">
       <h2>Welcome to the class</h2>
       <p>You are now logged in as a Mentor </p>
-      <button className="Star" onClick={onCheckStudentClick}>
+      <button className="button" onClick={onCheckStudentClick}>
         Check students
       </button>
-      <button className="Star">Check sessions</button>
+      <button className="button" onClick={onCheckSessionClick}>
+        {" "}
+        Check sessions
+      </button>
     </div>
   );
 };

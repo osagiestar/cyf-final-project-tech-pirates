@@ -23,7 +23,8 @@ CREATE TABLE user_type (
 CREATE TABLE attendance (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
-    session_id INT NOT NULL
+    session_id INT NOT NULL,
+    attendance_date timestamp NOT NULL
 );
 
 CREATE TABLE session (
@@ -57,15 +58,15 @@ INSERT INTO user_type(type) VALUES('Admin');
 INSERT INTO user_type(type) VALUES('Teacher');
 INSERT INTO user_type(type) VALUES('Student');
 
-INSERT INTO attendance(user_id,session_id) VALUES(3,5);
-INSERT INTO attendance(user_id,session_id) VALUES(5,3);
-INSERT INTO attendance(user_id,session_id) VALUES(4,2);
-INSERT INTO attendance(user_id,session_id) VALUES(3,5);
-INSERT INTO attendance(user_id,session_id) VALUES(4,3);
-INSERT INTO attendance(user_id,session_id) VALUES(5,2);
-INSERT INTO attendance(user_id,session_id) VALUES(6,5);
-INSERT INTO attendance(user_id,session_id) VALUES(7,3);
-INSERT INTO attendance(user_id,session_id) VALUES(8,2);
+INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(3,5,CURRENT_TIMESTAMP);
+INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(5,3,CURRENT_TIMESTAMP);
+INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(4,2,CURRENT_TIMESTAMP);
+INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(3,5,CURRENT_TIMESTAMP);
+INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(4,3,CURRENT_TIMESTAMP);
+INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(5,2,CURRENT_TIMESTAMP);
+INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(6,5,CURRENT_TIMESTAMP);
+INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(7,3,CURRENT_TIMESTAMP);
+INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(8,2,CURRENT_TIMESTAMP);
 
 INSERT INTO session(name,session_date,class_id) VALUES('JS1','2020-04-12',2);
 INSERT INTO session(name,session_date,class_id) VALUES('React3','09/05/2020',3);

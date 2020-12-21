@@ -24,13 +24,14 @@ app.post("/login", function (req, res) {
   //console.log(req.body)
   const email = req.body.email;
   const password = req.body.password;
+
   if (!req.body.email || !req.body.password) {
     return res.status(404).send("email and password required");
   }
 
   pool
     .query(
-      "SELECT users.id, users.email, users.name, user_type.type FROM users INNER JOIN user_type ON users.user_type = user_type.id WHERE email = $1 AND password = $2 ",
+      "SELECT users.class_id,users.id, users.email, users.name, user_type.type FROM users INNER JOIN user_type ON users.user_type = user_type.id WHERE email = $1 AND password = $2 ",
       [email, password]
     )
     .then((result) => {
@@ -44,13 +45,26 @@ app.post("/login", function (req, res) {
 
 
 // API to allow a student choose a session to attend
-app.get("/attendance", function (req, res) {
-  pool.query(
-    "select users.name from users inner join attendance on users.id = attendance.user_id;",
-    (error, result) => {
-      res.json(result.rows);
-    }
-  );
+app.get("/class/:classId/students", function (req, res) {
+  const classId = req.params.classId;
+  pool
+    
+    .query("select users.name,users.id from users where user_type  = 3 and class_id = $1",[classId])
+    .then((result) => res.json(result.rows))
+    .catch((e) => console.error(e));
+    
+  
+});
+
+app.get("/class/:classId/students/:studentId", function (req, res) {
+  const classId = req.params.classId;
+  const studentId = req.params.studentId;
+  pool
+    .query("select session.name, attendance.attendance_date from session left join attendance on attendance.session_id = session.id where session.class_id = $1 and (attendance.user_id = $2 or attendance.user_id is null) ", [
+      classId,studentId
+    ])
+    .then((result) => res.json(result.rows))
+    .catch((e) => console.error(e));
 });
 
 app.get("users/location/class/session", function (req, res) {
@@ -81,7 +95,7 @@ app.get("/users/:studentId/class/session", (req, res) => {
     const sessionId = req.body.sessionId;
     console.log(studentId,sessionId);
 
-    const classQuery ="insert into attendance (user_id,session_id) values ($1,$2)"
+    const classQuery ="insert into attendance (user_id,session_id,attendance_date) values ($1,$2,CURRENT_TIMESTAMP)"
   
     pool
       .query(classQuery, [studentId,sessionId])

@@ -23,7 +23,7 @@ console.log(user)
     {
       user && user.type === "Student" && <Welcome userId={user.id}/>   }
       {
-      user && user.type === "Teacher" && <MentorContainer />   }
+      user && user.type === "Teacher" && <MentorContainer classId={user.class_id}/>   }
     </>
   );
 }
