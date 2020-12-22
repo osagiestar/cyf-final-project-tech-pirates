@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
 
-//   user: "osagie",
+  user: "osagie",
 //   user: "S225693",
   host: "localhost",
   database: "attendance",
@@ -44,7 +44,7 @@ app.post("/login", function (req, res) {
 });
 
 
-// API to allow a student choose a session to attend
+// API to retrieve info about a specific student based on his/her classId  
 app.get("/class/:classId/students", function (req, res) {
   const classId = req.params.classId;
   pool
@@ -52,8 +52,7 @@ app.get("/class/:classId/students", function (req, res) {
     .query("select users.name,users.id from users where user_type  = 3 and class_id = $1",[classId])
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
-    
-  
+
 });
 
 app.get("/class/:classId/students/:studentId", function (req, res) {
@@ -74,9 +73,9 @@ app.get("users/location/class/session", function (req, res) {
       res.json(result.rows);
     }
   );
-});
+});  
 
-// API to allow a student choose a session to attend
+// API to retrieve session for a specific student 
 app.get("/users/:studentId/class/session", (req, res) => {
    
   const studentId = req.params.studentId;
@@ -90,6 +89,8 @@ app.get("/users/:studentId/class/session", (req, res) => {
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
   }); 
+
+  // API and query to record a session attended by a specific student
   app.post("/users/:studentId/class/session", (req, res) => {
     const studentId = req.params.studentId;
     const sessionId = req.body.sessionId;
@@ -99,6 +100,20 @@ app.get("/users/:studentId/class/session", (req, res) => {
   
     pool
       .query(classQuery, [studentId,sessionId])
+      .then((result) => res.json(result.rows))
+      .catch((e) => console.error(e));
+  }); 
+
+  app.post("/users/:teacherId/class/session", (req, res) => {
+    const studentId = req.params.studentId;
+    const sessionId = req.body.sessionId;
+    console.log(studentId, sessionId);
+
+    const classQuery =
+      "insert into attendance (user_id,session_id,attendance_date) values ($1,$2,CURRENT_TIMESTAMP)";
+
+    pool
+      .query(classQuery, [studentId, sessionId])
       .then((result) => res.json(result.rows))
       .catch((e) => console.error(e));
   }); 
