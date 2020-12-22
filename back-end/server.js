@@ -104,19 +104,19 @@ app.get("/users/:studentId/class/session", (req, res) => {
       .catch((e) => console.error(e));
   }); 
 
-  // Retrieves all students who are in attendance for a session 
-  app.get("/users/:teacherId/:sessionId", (req, res) => {
-    const teacherId = req.params.teacherId;
-    const sessionId = req.query.sessionId;
-    console.log(teacherId, sessionId);
+  // Retrieves all all students who are in attendance for a session 
+  app.get("/users/students/:sessionId", (req, res) => {
+    // const teacherId = req.params.teacherId;
+    const sessionId = req.params.sessionId;
+    // console.log(teacherId, sessionId);
 
     const attendanceSessionQuery =
-      "SELECT session.name, users.name, session.session_date FROM users INNER JOIN class ON users.class_id = class.id INNER JOIN session ON class.id = session.class_id INNER JOIN attendance ON session.id = attendance.session_id WHERE session.id = $1 AND users.id =$2";
+   
+      "SELECT session.name, users.name, session.session_date FROM users INNER JOIN class ON users.class_id = class.id INNER JOIN session ON class.id = session.class_id INNER JOIN attendance ON session.id = attendance.session_id WHERE session.id = $1";
     pool
-      .query(attendanceSessionQuery, [sessionId, teacherId])
+      .query(attendanceSessionQuery, [sessionId])
       .then((result) => res.json(result.rows))
       .catch((e) => console.error(e));
-  }); 
-
+  });  
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
