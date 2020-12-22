@@ -104,16 +104,16 @@ app.get("/users/:studentId/class/session", (req, res) => {
       .catch((e) => console.error(e));
   }); 
 
-  app.post("/users/:teacherId/class/session", (req, res) => {
-    const studentId = req.params.studentId;
-    const sessionId = req.body.sessionId;
-    console.log(studentId, sessionId);
+  // Retrieves all students who are in attendance for a session 
+  app.get("/users/:teacherId/:sessionId", (req, res) => {
+    const teacherId = req.params.teacherId;
+    const sessionId = req.query.sessionId;
+    console.log(teacherId, sessionId);
 
-    const classQuery =
-      "insert into attendance (user_id,session_id,attendance_date) values ($1,$2,CURRENT_TIMESTAMP)";
-
+    const attendanceSessionQuery =
+      "SELECT session.name, users.name, session.session_date FROM users INNER JOIN class ON users.class_id = class.id INNER JOIN session ON class.id = session.class_id INNER JOIN attendance ON session.id = attendance.session_id WHERE session.id = $1 AND users.id =$2";
     pool
-      .query(classQuery, [studentId, sessionId])
+      .query(attendanceSessionQuery, [sessionId, teacherId])
       .then((result) => res.json(result.rows))
       .catch((e) => console.error(e));
   }); 
