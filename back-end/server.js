@@ -12,8 +12,8 @@ app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
 
-  user: "osagie",
-//   user: "S225693",
+ // user: "osagie",
+  user: "S225693",
   host: "localhost",
   database: "attendance",
   password: process.env.DB_PASSWORD,
@@ -59,12 +59,23 @@ app.get("/class/:classId/students/:studentId", function (req, res) {
   const classId = req.params.classId;
   const studentId = req.params.studentId;
   pool
-    .query("select session.name, attendance.attendance_date from session left join attendance on attendance.session_id = session.id where session.class_id = $1 and (attendance.user_id = $2 or attendance.user_id is null) ", [
+    .query("select session.name, session.session_date from session left join attendance on attendance.session_id = session.id where session.class_id = $1 and (attendance.user_id = $2 or attendance.user_id is null) ", [
       classId,studentId
     ])
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
-});
+ });
+// app.get("/class/:classId/session", function (req, res) {
+//   const classId = req.params.classId;
+//   pool
+
+//     .query(
+//       "select session.name,session.id from session where users",
+//       [classId]
+//     )
+//     .then((result) => res.json(result.rows))
+//     .catch((e) => console.error(e));
+// });
 
 app.get("users/location/class/session", function (req, res) {
   pool.query(
