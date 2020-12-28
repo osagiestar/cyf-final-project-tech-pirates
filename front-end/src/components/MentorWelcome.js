@@ -10,11 +10,16 @@ const MentorWelcome = ({ onCheckStudentClick,onCheckSessionClick }) => {
       <div>
         <p>You are now logged in as a Mentor </p>
       </div>
-      <div className="mentor-button">
-        <button onClick={onCheckStudentClick}>Check students</button>
+      <div>
+        <button className="mentor-button" onClick={onCheckStudentClick}>
+          Check students
+        </button>
       </div>
-      <div className="mentor-button">
-        <button onClick={onCheckSessionClick}> Check sessions</button>
+      <div>
+        <button className="mentor-button" onClick={onCheckSessionClick}>
+          {" "}
+          Check sessions
+        </button>
       </div>
     </div>
   );

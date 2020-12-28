@@ -13,19 +13,26 @@ const StudentList = ({ classId,onGoBackClick, setStudentSession,onStudentClick }
   }, []);
   console.log(list);
   return (
-    <div>
-      <button onClick={onGoBackClick}>BackToWelcome</button>
-      <h3>Students List</h3>
+    <div className="student-list">
+      <div>
+        <button className="button" onClick={onGoBackClick}>
+          BackToWelcome
+        </button>
+      </div>
+      <div>
+        <h3>Student List</h3>
+      </div>
 
-      {list.map((item) => (
-        <div onClick={() => onStudentClick(item.id)}>
-          
-          <span value={item.id}>{item.name}</span>
-          {/* <button onClick={() => onStudentClick(item.id)}> */}
+      <div>
+        {list.map((item) => (
+          <div onClick={() => onStudentClick(item.id)}>
+            <span value={item.id}>{item.name}</span>
+            {/* <button onClick={() => onStudentClick(item.id)}> */}
             {/* Show Attendance */}
-          {/* </button> */}
-        </div>
-      ))}
+            {/* </button> */}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
