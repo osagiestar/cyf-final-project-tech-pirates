@@ -6,7 +6,9 @@ import StudentList from './StudentList';
 const MentorContainer = ({classId})=>{
     const [viewType, setViewType] = useState(0);
     const [studentId,setStudentId]=useState(null);
+    const [sessionId, setSessionId] = useState(null);
 console.log(studentId)
+console.log(sessionId);
     const containerView=()=>{
         if(viewType == 0){
             return (
@@ -16,8 +18,8 @@ console.log(studentId)
         if(viewType ==1 && !studentId){
             return <StudentList onStudentClick={setStudentId} classId={classId} onGoBackClick={()=> setViewType(0)} />
         }
-        if(viewType ==1 && studentId){
-            return <SessionAttendance classId ={classId} studentId={studentId}/>
+        if(viewType ==1 && sessionId){
+            return <SessionAttendance onSessionClick={setSessionId} sessionId={sessionId} onGoBackClick ={()=> setViewType(0)} />
         }
         return null;
     }
