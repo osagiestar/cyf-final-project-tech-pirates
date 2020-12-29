@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
 
-  user: "osagie",
+  user: "osagie", 
 //   user: "S225693",
   host: "localhost",
   database: "attendance",
@@ -114,6 +114,7 @@ app.get("/users/:studentId/class/session", (req, res) => {
       .query(attendanceSessionQuery, [sessionId])
       .then((result) => res.json(result.rows))
       .catch((e) => console.error(e));
-  }); 
+  });
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
+  
