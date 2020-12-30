@@ -45,6 +45,34 @@ CREATE TABLE location (
 );
 
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('guy.crawford@email.com','IwasBorn1965','Guy Crawford',1,1);
+
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('jamal@email.com','IwasBorn1965','Jamal',2,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('sara2@email.com','IwasBorn1965','Sara',3,1);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('jane.miller@email.com','IwasBorn1965','Jane Miller',3,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('laura20@email.com','IwasBorn1965','Laura',3,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('fred.smith@email.com','IwasBorn1965','Fred Smith',3,1);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('amanda.lake@email.com','IwasBorn1965','Amanda Lake',3,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('mike.jordan@email.com','IwasBorn1965','Mike Jordan',3,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('guy.crawford@email.com','IwasBorn1965','Guy Crawford',1,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('julia.stephen@email.com','IwasBorn1965','Julia Stephen',2,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('john.mayor@email.com','IwasBorn1965','John Mayor',3,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('sharon.tatcher@email.com','IwasBorn1965','Sharon Tatcher',3,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('nick.snow@email.com','IwasBorn1965','Nick Snow',3,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('claire.lewis@email.com','IwasBorn1965','Claire Lewis',3,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('pedro.morgan@email.com','IwasBorn1965','Pedro Morgan',3,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('andy.tiger@email.com','IwasBorn1965','Andy Tiger',3,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('pat.roberts@email.com','IwasBorn1965','Pat Roberts',3,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('shirley.ceaser@email.com','IwasBorn1965','Sharon Tatcher',3,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('cece.winnans@email.com','IwasBorn1965','Cece Winnans',3,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('andre.crouch@email.com','IwasBorn1965','Claire Lewis',2,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('mike.smith@email.com','IwasBorn1965','Pedro Morgan', 2,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('bill.green@email.com','IwasBorn1965','Andy Tiger',2,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('simon.jones@email.com','IwasBorn1965','Simon JOnes',1,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('harry.kane@email.com','IwasBorn1965','Harry Kane',3,1);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('mo.farah@email.com','IwasBorn1965','Mo Farah',3,3);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('bola.ige@email.com','IwasBorn1965','Bola Ige', 2,2);
+INSERT INTO users(email,password, name, user_type,class_id) VALUES ('lewis.hamilton@email.com','IwasBorn1965','Lewis Hamilton',3,3);
+
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('jamal@email.com','IwasBorn1965','Jamal',1,2);
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('sara2@email.com','IwasBorn1965','Sara',1,3);
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('jane.miller@email.com','IwasBorn1965','Jane Miller',2,1);
@@ -62,6 +90,7 @@ INSERT INTO users(email,password, name, user_type,class_id) VALUES ('Mike.phleps
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('isaac.newton@email.com','IwasBorn1965','Isaac Newton',3,1);
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('daniel.levis@email.com','IwasBorn1965','Daniel Levis',3,2);
 INSERT INTO users(email,password, name, user_type,class_id) VALUES ('super.man@email.com','IwasBorn1965','Super Man',3,3);
+
 
 
 INSERT INTO user_type(type) VALUES('Admin');
@@ -141,7 +170,7 @@ INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(16,5,CURRENT_T
 INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(17,4,CURRENT_TIMESTAMP);
 INSERT INTO attendance(user_id,session_id,attendance_date) VALUES(18,3,CURRENT_TIMESTAMP);
 
-INSERT INTO session(name,session_date,class_id) VALUES('Git/GitHub','07/03/2020',3);
+INSERT INTO session(name,session_date,class_id) VALUES('Git/GitHub','29/03/2020',3);
 INSERT INTO session(name,session_date,class_id) VALUES('HTML/CSS1','07/03/2020',3);
 INSERT INTO session(name,session_date,class_id) VALUES('HTML/CSS2','04/03/2020',3);
 INSERT INTO session(name,session_date,class_id) VALUES('HTML/CSS3','11/03/2020',3);

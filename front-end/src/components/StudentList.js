@@ -1,6 +1,4 @@
 import React, {useState,useEffect} from "react";
- 
-
 
 const StudentList = ({ classId,onGoBackClick, setStudentSession,onStudentClick }) => {
   const [list, setList] = useState([]);
