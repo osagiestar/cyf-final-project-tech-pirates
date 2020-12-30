@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-const Login = ({onLogin}) => {
-  const [email,setEmail]=useState("");
-  const [password,setPassword]=useState("")
+const Login = ({ onLogin }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const onLogIn = ()=>{
-    fetch("http://localhost:3003/login", {
+  const onLogIn = () => {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -14,11 +14,11 @@ const Login = ({onLogin}) => {
       }),
       headers: { "Content-Type": "application/json" },
     })
-    .then((res)=>res.json())
-    .then((data)=>{
-      onLogin(data)
-    });
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        onLogin(data);
+      });
+  };
   return (
     <div className="container">
       <header>
@@ -34,14 +34,13 @@ const Login = ({onLogin}) => {
           <span className="font-weight-bold">Welcome!</span>
         </h1>
 
-        <p className="first-line">
+        <h3 className="first-line">
           This is an attendance register for CYF classes
-        </p>
+        </h3>
       </div>
       <div>
         <FormGroup>
           <div className="email">
-            <label for="email"></label>
             <input
               type="email"
               placeholder="user name or email"
@@ -51,8 +50,7 @@ const Login = ({onLogin}) => {
               required
             ></input>
           </div>
-          <div>
-            <label for="password"></label>
+          <div className="email">
             <input
               type="Password"
               placeholder="Password"

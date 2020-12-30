@@ -1,8 +1,48 @@
+
 .App {
-  text-align: center;
+  
   display: flex;
+  
   flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  text-align: center;
+ 
 }
+.student-list{
+  display: flex;
+
+  flex-direction: column;
+ 
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  text-align: left;
+
+}
+.session-list {
+  display: flex;
+
+  flex-direction: column;
+
+   align-items: center; 
+  justify-content: center;
+  padding: 50px;
+  text-align: left;
+
+}
+
+.mentor-button {
+    background-color:red; 
+    color:white;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin: 10px; 
+  }
+  
+
 
 .App-logo {
   margin-top: 100px;
@@ -35,23 +75,30 @@
 
 .button {
   background-color: red;
+  border-radius: 5px;
   color: white;
+  margin: 10px;
+
 }
 
-.nav{
-  background-color: darkgray;
+
+.nav {
+  /* background-color: darkgray; */
   display: flex;
-  flex-direction: column;
+  justify-content:center;
+   align-items: center; 
+
+  
+  margin:100px;  
+  width: auto;
+
+  
+}
+.email{
+  margin: 10px;
 }
 
-.nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 10px;
-  font-weight: bold;
-}
+
 
 .Space {
   margin: 30px;
@@ -60,10 +107,7 @@ select {
   width: 220px;
 }
 
-.nav ul li {
-  color:black;
- margin-top: 10px;
-}
+
 
 .Star{
   background-color:red;
