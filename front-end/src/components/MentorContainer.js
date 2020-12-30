@@ -18,8 +18,16 @@ console.log(sessionId);
         if(viewType ==1 && !studentId){
             return <StudentList onStudentClick={setStudentId} classId={classId} onGoBackClick={()=> setViewType(0)} />
         }
-        if(viewType ==1 && sessionId){
-            return <SessionAttendance onSessionClick={setSessionId} sessionId={sessionId} onGoBackClick ={()=> setViewType(0)} />
+
+        if(viewType ==1 && studentId){
+            return (
+              <SessionAttendance
+                classId={classId}
+                studentId={studentId}
+                BackToStudentList={() => setViewType(0)}
+              />
+            );
+
         }
         return null;
     }

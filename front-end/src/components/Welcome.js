@@ -8,9 +8,15 @@ const Welcome = ({ userId }) => {
   const [sessions, setSessions] = useState(false);
   return (
     <div className="App">
-      <h2>Welcome to the class</h2>
-      <p>You are now logged in as a Student </p>
-      <UserCanSelectClass id={userId} setSessions={setSessions} />
+      <div>
+        <h2>Welcome to the class</h2>
+      </div>
+      <div>
+        <p>You are now logged in as a Student </p>
+      </div>
+      <div>
+        <UserCanSelectClass id={userId} setSessions={setSessions} />
+      </div>
     </div>
   );
 };

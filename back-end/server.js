@@ -12,14 +12,15 @@ app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
 
-  user: "osagie",
-//   user: "S225693",
+ // user: "osagie",
+  user: "S225693",
   host: "localhost",
   database: "attendance",
   password: process.env.DB_PASSWORD,
   port: 5432,
 });
 
+//All Users Login API
 app.post("/login", function (req, res) {
   //console.log(req.body)
   const email = req.body.email;
@@ -44,7 +45,7 @@ app.post("/login", function (req, res) {
 });
 
 
-// API to retrieve info about a specific student based on his/her classId  
+// Check-Student-List API(StudentList)
 app.get("/class/:classId/students", function (req, res) {
   const classId = req.params.classId;
   pool
@@ -55,6 +56,7 @@ app.get("/class/:classId/students", function (req, res) {
 
 });
 
+//checked student session attendance API(SessionAttendance)
 app.get("/class/:classId/students/:studentId", function (req, res) {
   const classId = req.params.classId;
   const studentId = req.params.studentId;
@@ -64,18 +66,21 @@ app.get("/class/:classId/students/:studentId", function (req, res) {
     ])
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
-});
+ });
+// app.get("/class/:classId/session", function (req, res) {
+//   const classId = req.params.classId;
+//   pool
 
-app.get("users/location/class/session", function (req, res) {
-  pool.query(
-    "select users.name, user_type.type, location.name, class.name, session.name from users, user_type, location, class,session where user_type.id=users.user_type and location.id = class.location_id and class.id = session.class_id and users.id = 3",
-    (error, result) => {
-      res.json(result.rows);
-    }
-  );
-});  
+//     .query(
+//       "select session.name,session.id from session where session.class_id = users.class_id",
+//       [classId]
+//     )
+//     .then((result) => res.json(result.rows))
+//     .catch((e) => console.error(e));
+// });
 
-// API to retrieve session for a specific student 
+
+// API to retrieve session for a specific student (UserCanSelectClass)
 app.get("/users/:studentId/class/session", (req, res) => {
    
   const studentId = req.params.studentId;
@@ -90,7 +95,7 @@ app.get("/users/:studentId/class/session", (req, res) => {
     .catch((e) => console.error(e));
   }); 
 
-  // API and query to record a session attended by a specific student
+  // API and query to record a session attended by a specific student (Attendance Record)
   app.post("/users/:studentId/class/session", (req, res) => {
     const studentId = req.params.studentId;
     const sessionId = req.body.sessionId;
@@ -104,6 +109,7 @@ app.get("/users/:studentId/class/session", (req, res) => {
       .catch((e) => console.error(e));
   }); 
 
+ 
   // Retrieves all all students who are in attendance for a session 
   app.get("/users/class/:sessionId/students", (req, res) => {
     const sessionId = req.params.sessionId;
@@ -112,6 +118,19 @@ app.get("/users/:studentId/class/session", (req, res) => {
       "SELECT session.name, session.session_date, users.name FROM users INNER JOIN class ON users.class_id = class.id INNER JOIN session ON class.id = session.class_id INNER JOIN attendance ON session.id = attendance.session_id WHERE users.user_type = 3 AND session.id = $1 GROUP BY session.name, session.session_date, users.name HAVING count(*) > 1";
       pool
       .query(attendanceSessionQuery, [sessionId])
+
+  // Retrieves all students who are in attendance for a session 
+  app.get("/users/:teacherId/:sessionId", (req, res) => {
+    // const classId = req.params.classId;
+    const teacherId = req.params.teacherId;
+    const sessionId = req.params.sessionId;
+    console.log(teacherId, sessionId);
+
+    const attendanceSessionQuery =
+      "SELECT session.name, users.name, session.session_date FROM users INNER JOIN class ON users.class_id = class.id INNER JOIN session ON class.id = session.class_id INNER JOIN attendance ON session.id = attendance.session_id WHERE users.id =$1 AND session.id=$2";
+    pool
+      .query(attendanceSessionQuery, [ teacherId, sessionId])
+
       .then((result) => res.json(result.rows))
       .catch((e) => console.error(e));
   });
