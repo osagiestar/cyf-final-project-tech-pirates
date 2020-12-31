@@ -126,7 +126,19 @@ app.get("/users/:studentId/class/session", (req, res) => {
       .catch((e) => console.error(e));
   }); 
 
-  //Retrieves all students who are in attendance for a session 
+
+ 
+  // Retrieves all all students who are in attendance for a session 
+  app.get("/users/class/:sessionId/students", (req, res) => {
+    const sessionId = req.params.sessionId;
+    console.log(sessionId);
+    const attendanceSessionQuery =
+      "SELECT session.name, session.session_date, users.name FROM users INNER JOIN class ON users.class_id = class.id INNER JOIN session ON class.id = session.class_id INNER JOIN attendance ON session.id = attendance.session_id WHERE users.user_type = 3 AND session.id = $1 GROUP BY session.name, session.session_date, users.name HAVING count(*) > 1";
+      pool
+      .query(attendanceSessionQuery, [sessionId])
+
+  // Retrieves all students who are in attendance for a session 
+
   app.get("/users/:teacherId/:sessionId", (req, res) => {
     // const classId = req.params.classId;
     const teacherId = req.params.teacherId;
@@ -137,10 +149,10 @@ app.get("/users/:studentId/class/session", (req, res) => {
       "SELECT session.name, users.name, session.session_date FROM users INNER JOIN class ON users.class_id = class.id INNER JOIN session ON class.id = session.class_id INNER JOIN attendance ON session.id = attendance.session_id WHERE users.id =$1 AND session.id=$2";
     pool
       .query(attendanceSessionQuery, [ teacherId, sessionId])
+
       .then((result) => res.json(result.rows))
       .catch((e) => console.error(e));
-  }); 
-
+  });
 
   //Osagie specific session attendance
   app.get("/users/class/:sessionId/students", (req, res) => {

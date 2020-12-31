@@ -5,7 +5,9 @@ const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onLogIn = () => {
+
+  const onLogIn = ()=>{
+
     fetch("http://localhost:3000/login", {
       method: "POST",
       body: JSON.stringify({
