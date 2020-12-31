@@ -2,20 +2,16 @@
 .App {
   
   display: flex;
-  
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 50px;
   text-align: center;
  
 }
 .student-list{
   display: flex;
-
-  flex-direction: column;
- 
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   padding: 50px;
@@ -24,10 +20,8 @@
 }
 .session-list {
   display: flex;
-
   flex-direction: column;
-
-   align-items: center; 
+  align-items: center; 
   justify-content: center;
   padding: 50px;
   text-align: left;
@@ -45,8 +39,7 @@
 
 
 .App-logo {
-  margin-top: 100px;
-  
+  margin-top: 100px;  
   height: 20vmin;
   width: 300px;
 }
@@ -83,37 +76,28 @@
 
 
 .nav {
-  /* background-color: darkgray; */
+  
   display: flex;
   justify-content:center;
-   align-items: center; 
-
-  
+  align-items: center;  
   margin:100px;  
-  width: auto;
-
   
 }
+
 .email{
   margin: 10px;
 }
-
-
-
 .Space {
   margin: 30px;
 }
 select {
   width: 220px;
 }
-
-
-
 .Star{
   background-color:red;
   color:white;
- font-weight: bolder;  
- border-radius: 5px;
+  font-weight: bolder;  
+  border-radius: 5px;
 }
 
 .Star-clicked {

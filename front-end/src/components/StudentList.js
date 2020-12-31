@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
  
 
 
-const StudentList = ({ classId,onGoBackClick, setStudentSession,onStudentClick }) => {
+const StudentList = ({ classId,onGoBackClick,onStudentClick }) => {
   const [list, setList] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:3000/class/${classId}/students`)
@@ -10,7 +10,7 @@ const StudentList = ({ classId,onGoBackClick, setStudentSession,onStudentClick }
       .then((data) => {
         setList(data);
       });
-  }, []);
+  });
   console.log(list);
   return (
     <div className="student-list">
@@ -27,9 +27,6 @@ const StudentList = ({ classId,onGoBackClick, setStudentSession,onStudentClick }
         {list.map((item) => (
           <div onClick={() => onStudentClick(item.id)}>
             <span value={item.id}>{item.name}</span>
-            {/* <button onClick={() => onStudentClick(item.id)}> */}
-            {/* Show Attendance */}
-            {/* </button> */}
           </div>
         ))}
       </div>

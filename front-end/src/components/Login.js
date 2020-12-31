@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import {  FormGroup } from "reactstrap";
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
