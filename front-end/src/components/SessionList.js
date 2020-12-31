@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from "react";
 
-const SessionList = () => {
+const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
   const [sessionList, setSessionList] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/attendance`)
+    fetch(`http://localhost:3000/class/${classId}/session`)
       .then((res) => res.json())
       .then((data) => {
         setSessionList(data);
       });
-  }, []);
+  });
   console.log(sessionList);
   return (
-    <div>
-      <h3>Session List</h3>
-      {sessionList.map((item) => (
-        <>
-          {" "}
-          <option value={item.id}>{item.name}</option>
-          {/* <button onClick={() => setStudentSession(item.name)}>
-            Show Attendance
-          </button> */}
-        </>
-      ))}
+    <div className="student-list">
+      <div>
+        <button className="button" onClick={onGoBackClick}>
+          BackToWelcome
+        </button>
+      </div>
+      <div>
+        <h3>Session List</h3>
+      </div>
+      <div>
+        {sessionList.map((item) => (
+          <div onClick={() => onSessionClick(item.id)}>
+            <span value={item.id}>{item.name}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
