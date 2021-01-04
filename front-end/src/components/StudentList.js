@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from "react";
+import { ArrowRight } from "react-bootstrap-icons";
 
 const StudentList = ({ classId,onGoBackClick,onStudentClick }) => {
   const [list, setList] = useState([]);
@@ -25,6 +26,7 @@ const StudentList = ({ classId,onGoBackClick,onStudentClick }) => {
         {list.map((item) => (
           <div onClick={() => onStudentClick(item.id)}>
             <span value={item.id}>{item.name}</span>
+            <ArrowRight />
           </div>
         ))}
       </div>
