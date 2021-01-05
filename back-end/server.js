@@ -137,18 +137,18 @@ app.get("/users/:studentId/class/session", (req, res) => {
     pool.query(attendanceSessionQuery, [sessionId]);
   });
 
-  // Retrieves all students who are in attendance for a session 
+  // Retrieves all students who are in attendance for a session (StudnetAttendance)
 
-  app.get("/users/:teacherId/:sessionId", (req, res) => {
-    // const classId = req.params.classId;
-    const teacherId = req.params.teacherId;
+  app.get("/users/:classId/:sessionId", (req, res) => {
+    const classId = req.params.classId;
+    
     const sessionId = req.params.sessionId;
-    console.log(teacherId, sessionId);
+    console.log(classId, sessionId);
 
     const attendanceSessionQuery =
-      "SELECT session.name, users.name, session.session_date FROM users INNER JOIN class ON users.class_id = class.id INNER JOIN session ON class.id = session.class_id INNER JOIN attendance ON session.id = attendance.session_id WHERE users.id =$1 AND session.id=$2";
+      "select users.name, (select attendance_date from attendance where attendance.session_id = $2 and attendance.user_id = users.id) as attendance from users where users.class_id = $1 and users.user_type = 3;";
     pool
-      .query(attendanceSessionQuery, [ teacherId, sessionId])
+      .query(attendanceSessionQuery, [ classId, sessionId])
 
       .then((result) => res.json(result.rows))
       .catch((e) => console.error(e));

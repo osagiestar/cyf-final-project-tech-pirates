@@ -1,5 +1,8 @@
 import React, {useState,useEffect} from "react";
 
+import Table from "react-bootstrap/Table";
+import { FcOk, FcCancel } from "react-icons/fc";
+
 
 const SessionAttendance = ({classId, objectId, BackToStudentList}) => {
   const [studentSession, setStudentSession] = useState([]);
@@ -16,12 +19,21 @@ const SessionAttendance = ({classId, objectId, BackToStudentList}) => {
       <button className="button" onClick={BackToStudentList}>
         BackToStudentList
       </button>
-
-      {studentSession.map((item) => (
+      <div>
+        {studentSession.map((item) => (
+          <Table className="table">
+            <tr>
+              <td>{item.name}</td>
+              <td>{item.attendance_date ? <FcOk /> : <FcCancel />}</td>
+            </tr>
+          </Table>
+        ))}
+      </div>
+      {/* {studentSession.map((item) => (
         <div>
           {item.name} - {item.attendance_date}
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
