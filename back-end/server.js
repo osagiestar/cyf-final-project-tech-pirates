@@ -134,8 +134,8 @@ app.get("/users/:studentId/class/session", (req, res) => {
     console.log(sessionId);
     const attendanceSessionQuery =
       "SELECT session.name, session.session_date, users.name FROM users INNER JOIN class ON users.class_id = class.id INNER JOIN session ON class.id = session.class_id INNER JOIN attendance ON session.id = attendance.session_id WHERE users.user_type = 3 AND session.id = $1 GROUP BY session.name, session.session_date, users.name HAVING count(*) > 1";
-      pool
-      .query(attendanceSessionQuery, [sessionId])
+    pool.query(attendanceSessionQuery, [sessionId]);
+  });
 
   // Retrieves all students who are in attendance for a session 
 
