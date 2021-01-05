@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import Login from "./components/Login";
 import Welcome from "./components/Welcome";
-//import MentorWelcome from "./components/MentorWelcome";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MentorContainer from "./components/MentorContainer";
 import AdminWelcome from "./components/AdminWelcome"
@@ -25,7 +25,9 @@ function App({userId}) {
         <MentorContainer classId={user.class_id} />
       )}
       {user && user.type === "Admin" && <AdminWelcome />}
-    </>
+      <hr />
+      <Footer />
+      </>
   );
 }
 

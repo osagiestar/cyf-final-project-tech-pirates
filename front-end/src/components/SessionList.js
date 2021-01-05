@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { ArrowRight } from "react-bootstrap-icons";
+import Table from "react-bootstrap/Table";
+import { FcRight } from "react-icons/fc";
 
 const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
   const [sessionList, setSessionList] = useState([]);
@@ -8,7 +11,7 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
       .then((data) => {
         setSessionList(data);
       });
-  });
+  },[classId]);
   console.log(sessionList);
   return (
     <div className="student-list">
@@ -22,10 +25,22 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
       </div>
       <div>
         {sessionList.map((item) => (
+          <Table className="table">
+            <tr onClick={() => onSessionClick(item.id)}>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>
+                {" "}
+                <FcRight />
+              </td>
+            </tr>
+          </Table>
+        ))}
+        {/* {sessionList.map((item) => (
           <div onClick={() => onSessionClick(item.id)}>
             <span value={item.id}>{item.name}</span>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
