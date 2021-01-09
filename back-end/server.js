@@ -11,13 +11,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
-
- /* user: "osagie",*/
-  user: "S225693",
-  host: "localhost",
-  database: "attendance",
-  password: process.env.DB_PASSWORD,
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  sslmode: require,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 /* All Users Login API */

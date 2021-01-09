@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaRegUser } from "react-icons/fa";
 
 const Header = ({ onLogout, user }) => {
-  const [name, setName] = useState("");
-  const username = () => {
-    setName(name);
-  };
   return (
     <div className="nav">
       <div>

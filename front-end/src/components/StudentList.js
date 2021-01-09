@@ -5,7 +5,7 @@ import { FcRight } from "react-icons/fc";
 const StudentList = ({ classId,onGoBackClick,onStudentClick }) => {
   const [list, setList] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/class/${classId}/students`)
+    fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students`)
       .then((res) => res.json())
       .then((data) => {
         setList(data);

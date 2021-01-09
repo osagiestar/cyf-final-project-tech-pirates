@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 
 const AdminWelcome = ({ userId }) => {
-  const [classes, setClasses] = useState(false);
+  
   return (
     <div className="App">
       <div>
