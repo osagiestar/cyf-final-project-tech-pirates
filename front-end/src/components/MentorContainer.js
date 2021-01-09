@@ -54,6 +54,7 @@ const MentorContainer = ({ classId }) => {
           classId={classId}
           sessionId={objectId}
           BackToStudentList={() => setObjectId(0)}
+          
         />
       );
     }

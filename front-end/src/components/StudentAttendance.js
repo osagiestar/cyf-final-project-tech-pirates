@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import { FcOk, FcCancel } from "react-icons/fc";
 
-
-const StudentAttendance = ({classId,sessionId, BackToStudentList }) => {
+const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
   const [studentAttendance, setStudentAttendance] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:3000/users/${classId}/${sessionId}`)
@@ -11,7 +10,7 @@ const StudentAttendance = ({classId,sessionId, BackToStudentList }) => {
       .then((data) => {
         setStudentAttendance(data);
       });
-  },[classId,sessionId]);
+  }, [classId, sessionId]);
   console.log(studentAttendance);
   return (
     <div className="session-list">
@@ -29,12 +28,6 @@ const StudentAttendance = ({classId,sessionId, BackToStudentList }) => {
           </Table>
         ))}
       </div>
-
-      {/* {studentAttendance.map((item) => (
-        <div>
-          {item.name} - {item.attendance_date}
-        </div>
-      ))} */}
     </div>
   );
 };

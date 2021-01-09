@@ -1,11 +1,19 @@
 import React from "react";
+import {
+  FaFacebookF,
+  FaGit,
+  FaInstagram,
+  FaTwitter,
+  } from "react-icons/fa";
+import {CgWebsite} from "react-icons/cg"
+import { FcDocument } from "react-icons/fc";
 const Footer = () => {
      
   return (
     <div className="footer">
       <div>
         <ul className="footer_items">
-          <h4>Community</h4>
+         
           <li className="footer_item">
             <a
               href="https://www.codeyourfuture.io"
@@ -13,7 +21,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="footer_link-item"
             >
-              Website
+              <CgWebsite />
             </a>
           </li>
           <li className="footer_item">
@@ -23,7 +31,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="footer_link-item"
             >
-              Documentation
+              <FcDocument />
             </a>
           </li>
           <li class="footer_item">
@@ -33,7 +41,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="footer_link-item"
             >
-              GitHub
+              <FaGit />
             </a>
           </li>
         </ul>
@@ -43,7 +51,7 @@ const Footer = () => {
       </div>
       <div>
         <ul className="footer_items">
-          <h4>Social</h4>
+          
           <li className="footer_item">
             <a
               href="https://www.facebook.com/codeyourfuture.io"
@@ -51,7 +59,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="footer_link-item"
             >
-              Facebook
+              <FaFacebookF />
             </a>
           </li>
           <li className="footer_item">
@@ -61,7 +69,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="footer_link-item"
             >
-              Instagram
+              <FaInstagram />
             </a>
           </li>
           <li className="footer_item">
@@ -71,7 +79,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="footer_link-item"
             >
-              Twitter
+              <FaTwitter />
             </a>
           </li>
         </ul>

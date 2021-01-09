@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { ArrowRight } from "react-bootstrap-icons";
 import Table from "react-bootstrap/Table";
 import { FcRight } from "react-icons/fc";
 
@@ -36,11 +35,6 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
             </tr>
           </Table>
         ))}
-        {/* {sessionList.map((item) => (
-          <div onClick={() => onSessionClick(item.id)}>
-            <span value={item.id}>{item.name}</span>
-          </div>
-        ))} */}
       </div>
     </div>
   );
