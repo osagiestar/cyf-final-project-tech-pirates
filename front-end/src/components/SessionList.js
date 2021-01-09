@@ -35,11 +35,6 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
             </tr>
           </Table>
         ))}
-        {/* {sessionList.map((item) => (
-          <div onClick={() => onSessionClick(item.id)}>
-            <span value={item.id}>{item.name}</span>
-          </div>
-        ))} */}
       </div>
     </div>
   );

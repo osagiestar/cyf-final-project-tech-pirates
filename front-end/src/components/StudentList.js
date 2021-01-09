@@ -28,7 +28,8 @@ const StudentList = ({ classId,onGoBackClick,onStudentClick }) => {
           <Table className="table">
             <tr onClick={() => onStudentClick(item.id)}>
               <td>{item.id}</td>
-              <td>{item.name}</td>
+              <td>{item.name}         
+              </td>
               <td>
                 {" "}
                 <FcRight />

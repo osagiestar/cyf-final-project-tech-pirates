@@ -5,9 +5,9 @@ import Welcome from "./components/Welcome";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MentorContainer from "./components/MentorContainer";
-import AdminWelcome from "./components/AdminWelcome"
+import AdminWelcome from "./components/AdminWelcome";
 
-function App({userId}) {
+function App({ userId }) {
   const [user, setUser] = useState();
   const logout = () => {
     setUser(null);
@@ -27,7 +27,7 @@ function App({userId}) {
       {user && user.type === "Admin" && <AdminWelcome />}
       <hr />
       <Footer />
-      </>
+    </>
   );
 }
 

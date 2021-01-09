@@ -1,10 +1,14 @@
-import React, {useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import Table from "react-bootstrap/Table";
 import { FcOk, FcCancel } from "react-icons/fc";
 
+const SessionAttendance = ({
+  classId,
+  objectId,
+  BackToStudentList
 
-const SessionAttendance = ({classId, objectId, BackToStudentList}) => {
+}) => {
   const [studentSession, setStudentSession] = useState([]);
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students/${objectId}`)
@@ -20,6 +24,7 @@ const SessionAttendance = ({classId, objectId, BackToStudentList}) => {
         BackToStudentList
       </button>
       <div>
+        
         {studentSession.map((item) => (
           <Table className="table">
             <tr>
@@ -29,12 +34,7 @@ const SessionAttendance = ({classId, objectId, BackToStudentList}) => {
           </Table>
         ))}
       </div>
-      {/* {studentSession.map((item) => (
-        <div>
-          {item.name} - {item.attendance_date}
-        </div>
-      ))} */}
     </div>
   );
 };
-  export default SessionAttendance;
+export default SessionAttendance;
