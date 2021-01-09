@@ -1,8 +1,4 @@
 import React, {useState, useEffect} from "react";
-// import { FaRegUser } from "react-icons/fa";
-// import { Link } from "react-router-dom";
-
-
 
 const UserCanSelectClass = ({onLogout,id, setSessions}) => {
      const [session,setSession] = useState([]);
@@ -10,7 +6,7 @@ const UserCanSelectClass = ({onLogout,id, setSessions}) => {
      const [clicked,setClicked] = useState(false)
 console.log(sessionSelect)
      const onclick=()=>{
-         fetch(`http://localhost:3000/users/${id}/class/session`, {
+         fetch(`${process.env.REACT_APP_BACK_END_URL}/users/${id}/class/session`, {
            method: "POST",
            body: JSON.stringify({
              sessionId: sessionSelect

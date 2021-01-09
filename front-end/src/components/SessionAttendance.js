@@ -7,7 +7,7 @@ import { FcOk, FcCancel } from "react-icons/fc";
 const SessionAttendance = ({classId, objectId, BackToStudentList}) => {
   const [studentSession, setStudentSession] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/class/${classId}/students/${objectId}`)
+    fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students/${objectId}`)
       .then((res) => res.json())
       .then((data) => {
         setStudentSession(data);

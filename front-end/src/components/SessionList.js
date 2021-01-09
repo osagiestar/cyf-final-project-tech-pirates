@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { ArrowRight } from "react-bootstrap-icons";
 import Table from "react-bootstrap/Table";
 import { FcRight } from "react-icons/fc";
 
 const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
   const [sessionList, setSessionList] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/class/${classId}/session`)
+    fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/session`)
       .then((res) => res.json())
       .then((data) => {
         setSessionList(data);
