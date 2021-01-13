@@ -27,7 +27,6 @@ const StudentList = ({ classId,onGoBackClick,onStudentClick }) => {
         {list.map((item) => (
           <Table className="table">
             <tr onClick={() => onStudentClick(item.id)}>
-              {/* <td>{item.id}</td> */}
               <td className="list-style">{item.name}</td>
               <td>
                 {" "}
