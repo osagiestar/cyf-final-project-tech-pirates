@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Table from "react-bootstrap/Table";
-import { FcOk, FcCancel } from "react-icons/fc";
+import { FcOk, FcCancel, FcExpired } from "react-icons/fc";
 
 const SessionAttendance = ({
   classId,
@@ -14,26 +14,48 @@ const SessionAttendance = ({
     fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students/${objectId}`)
       .then((res) => res.json())
       .then((data) => {
-        setStudentSession(data);
-      });
-  });
+        setStudentSession(data);})
+        
+  },[classId,objectId]);
   console.log(studentSession);
   return (
-    <div className="session-list">
-      <div className="back-to">
-        <button className="button" onClick={BackToStudentList}>
-          Back
-        </button>
-      </div>
-      <div className="list">
-        {studentSession.map((item) => (
-          <Table className="table">
+    <div className="back-to">
+
+      <button className="button" onClick={BackToStudentList}>
+        Back
+      </button>
+
+      <div>
+        <Table className="table">
+          <thead>
             <tr>
-              <td className="list-style">{item.name}</td>
-              <td>{item.attendance_date ? <FcOk /> : <FcCancel />}</td>
-            </tr>
-          </Table>
-        ))}
+              <th>Sessions</th>
+              <th>Status</th>
+              <th>Attendance Date/Time</th>
+              <th>Session Date</th>  
+                </tr>
+          </thead>
+          <tbody>
+            {studentSession.map((item) => (
+              <tr>
+                <td>{item.name}</td>
+                <td>
+                  {item.attendance_date ? (
+                    item.late ? (
+                      <FcExpired />
+                    ) : (
+                      <FcOk />
+                    )
+                  ) : (
+                    <FcCancel />
+                  )}
+                </td>
+                <td>{item.attendance_date}</td>
+                <td>{item.session_date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </div>
     </div>
   );

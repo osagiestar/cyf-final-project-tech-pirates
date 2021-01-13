@@ -10,9 +10,10 @@ console.log(sessionSelect)
            method: "POST",
            body: JSON.stringify({
              sessionId: sessionSelect
-           }),
-           headers: { "Content-Type": "application/json" },
-         }).then((res) => setClicked(true))
+        
+          }),
+          headers: { "Content-Type": "application/json" },
+        }).then((res) => setClicked(true));
      }
 
 

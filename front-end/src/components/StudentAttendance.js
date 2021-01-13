@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
-import { FcOk, FcCancel } from "react-icons/fc";
+import { FcOk, FcCancel, FcExpired } from "react-icons/fc";
 
 const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
   const [studentAttendance, setStudentAttendance] = useState([]);
@@ -9,25 +9,46 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
       .then((res) => res.json())
       .then((data) => {
         setStudentAttendance(data);
-      });
+        
+          });
   }, [classId, sessionId]);
   console.log(studentAttendance);
   return (
-    <div className="session-list">
-      <div className="back-to">
-        <button className="button" onClick={BackToStudentList}>
-          Back
-        </button>
-      </div>
-      <div className="list">
-        {studentAttendance.map((item) => (
-          <Table className="table">
+    <div className="back-to">
+
+      <button className="button" onClick={BackToStudentList}>
+        Back
+      </button>
+
+      <div>
+        <Table className="table">
+          <thead>
             <tr>
-              <td className="list-style">{item.name}</td>
-              <td>{item.attendance ? <FcOk /> : <FcCancel />}</td>
-            </tr>
-          </Table>
-        ))}
+              <th>students</th>
+              <th>Status</th>
+              <th>Attendance Date/Time</th>
+ </tr>
+          </thead>
+          <tbody>
+            {studentAttendance.map((item) => (
+              <tr>
+                <td>{item.name}</td>
+                <td>
+                  {item.attendance_date ? (
+                    item.late ? (
+                      <FcExpired />
+                    ) : (
+                      <FcOk />
+                    )
+                  ) : (
+                    <FcCancel />
+                  )}
+                </td>
+                <td>{item.attendance_date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </div>
     </div>
   );

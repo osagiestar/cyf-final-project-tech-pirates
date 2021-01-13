@@ -11,11 +11,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  sslmode: require,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  // connectionString: process.env.DATABASE_URL,
+  // sslmode: require,
+  // ssl: {
+  //   rejectUnauthorized: false,
+  // },
+  user: "S225693",
+ 
+    host: "localhost",
+    database: "attendance",
+    password: process.env.DB_PASSWORD,
+    port: 5432
 });
 
 /* All Users Login API */
@@ -86,9 +92,10 @@ app.get("/class/:classId/students/:studentId", function (req, res) {
   const classId = req.params.classId;
   const studentId = req.params.studentId;
   pool
-    .query("select session.name, attendance.attendance_date from session left join attendance on attendance.session_id = session.id where session.class_id = $1 and (attendance.user_id = $2 or attendance.user_id is null) ", [
-      classId,studentId
-    ])
+    .query(
+      "select session.name,(select to_char(attendance_date, 'yyyy-mm-dd hh:mi:ss') as attendance_date) ,  attendance_date > session.session_date as late from attendance,session  where attendance.user_id = $2 and attendance.session_id = session.id and session.class_id=$1",
+      [classId, studentId]
+    )
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
  });
@@ -114,7 +121,7 @@ app.get("/class/:classId/session", function (req, res) {
     console.log(classId, sessionId);
 
     const attendanceSessionQuery =
-      "select users.name, (select attendance_date from attendance where attendance.session_id = $2 and attendance.user_id = users.id) as attendance from users where users.class_id = $1 and users.user_type = 3;";
+      "select distinct on (users.name) users.name, (select to_char(attendance.attendance_date, 'yyyy-mm-dd hh:mi:ss')as attendance_date),attendance_date > session.session_date as late  from users,session, attendance where session.id = $2 and attendance.session_id = session.id  and  users.class_id = $1 and users.user_type = 3";
     pool
       .query(attendanceSessionQuery, [ classId, sessionId])
 

@@ -9,8 +9,9 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
       .then((res) => res.json())
       .then((data) => {
         setSessionList(data);
+
       });
-  },[classId]);
+  }, [classId]);
   console.log(sessionList);
   return (
     <div className="session-list">
@@ -19,22 +20,29 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
           Back
         </button>
       </div>
-      <div className="list">
-        <h3 className="add-color">Session List</h3>
-      </div>
-      <div className="list">
-        {sessionList.map((item) => (
-          <Table className="table">
-            <tr onClick={() => onSessionClick(item.id)}>
-              {/* <td>{item.id}</td> */}
-              <td className="list-style">{item.name}</td>
-              <td>
-                {" "}
-                <FcRight />
-              </td>
-            </tr>
-          </Table>
-        ))}
+
+
+      <div>
+        <Table className="table">
+          <thead>
+            <tr>
+              <th>Sessions</th>
+              <th>Go to Student</th>
+ </tr>
+          </thead>
+          <tbody>
+          
+            {sessionList.map((item) => (
+              <tr onClick={() => onSessionClick(item.id)}>
+                <td>{item.name}</td>
+                <td>
+                  {" "}
+                  <FcRight />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </div>
     </div>
   );

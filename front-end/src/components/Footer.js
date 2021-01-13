@@ -13,7 +13,6 @@ const Footer = () => {
     <div className="footer">
       <div>
         <ul className="footer_items">
-         
           <li className="footer_item">
             <a
               href="https://www.codeyourfuture.io"
@@ -47,11 +46,10 @@ const Footer = () => {
         </ul>
       </div>
       <div className="copyright">
-        <div>Copyright © 2020 CodeYourFuture</div>
+        <div>Copyright © {new Date().getFullYear()} CodeYourFuture</div>
       </div>
       <div>
         <ul className="footer_items">
-          
           <li className="footer_item">
             <a
               href="https://www.facebook.com/codeyourfuture.io"
