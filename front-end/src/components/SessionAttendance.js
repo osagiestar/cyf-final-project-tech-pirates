@@ -20,15 +20,16 @@ const SessionAttendance = ({
   console.log(studentSession);
   return (
     <div className="session-list">
-      <button className="button" onClick={BackToStudentList}>
-        BackToStudentList
-      </button>
-      <div>
-        
+      <div className="back-to">
+        <button className="button" onClick={BackToStudentList}>
+          BackToStudentList
+        </button>
+      </div>
+      <div className="list">
         {studentSession.map((item) => (
           <Table className="table">
             <tr>
-              <td>{item.name}</td>
+              <td className="list-style">{item.name}</td>
               <td>{item.attendance_date ? <FcOk /> : <FcCancel />}</td>
             </tr>
           </Table>
