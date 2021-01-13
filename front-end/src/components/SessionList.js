@@ -13,21 +13,21 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
   },[classId]);
   console.log(sessionList);
   return (
-    <div className="student-list">
-      <div>
+    <div className="session-list">
+      <div className="back-to">
         <button className="button" onClick={onGoBackClick}>
-          BackToWelcome
+          Back
         </button>
       </div>
-      <div>
-        <h3>Session List</h3>
+      <div className="list">
+        <h3 className="add-color">Session List</h3>
       </div>
-      <div>
+      <div className="list">
         {sessionList.map((item) => (
           <Table className="table">
             <tr onClick={() => onSessionClick(item.id)}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
+              {/* <td>{item.id}</td> */}
+              <td className="list-style">{item.name}</td>
               <td>
                 {" "}
                 <FcRight />

@@ -14,22 +14,20 @@ const StudentList = ({ classId,onGoBackClick,onStudentClick }) => {
   console.log(list);
   return (
     <div className="student-list">
-      <div>
+      <div className="back-to">
         <button className="button" onClick={onGoBackClick}>
-          BackToWelcome
+          Back
         </button>
       </div>
-      <div>
-        <h3>Student List</h3>
+      <div className="list">
+        <h3 className="add-color">Student List</h3>
       </div>
 
-      <div>
+      <div className="list">
         {list.map((item) => (
           <Table className="table">
             <tr onClick={() => onStudentClick(item.id)}>
-              {/* <td>{item.id}</td> */}
-              <td>{item.name}         
-              </td>
+              <td className="list-style">{item.name}</td>
               <td>
                 {" "}
                 <FcRight />
