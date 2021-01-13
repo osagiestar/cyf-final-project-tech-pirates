@@ -16,7 +16,7 @@ const StudentList = ({ classId,onGoBackClick,onStudentClick }) => {
     <div className="student-list">
       <div className="back-to">
         <button className="button" onClick={onGoBackClick}>
-          BackToWelcome
+          Back
         </button>
       </div>
       <div className="list">

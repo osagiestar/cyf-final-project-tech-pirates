@@ -22,7 +22,7 @@ const SessionAttendance = ({
     <div className="session-list">
       <div className="back-to">
         <button className="button" onClick={BackToStudentList}>
-          BackToStudentList
+          Back
         </button>
       </div>
       <div className="list">

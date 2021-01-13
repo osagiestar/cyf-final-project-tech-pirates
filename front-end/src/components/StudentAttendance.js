@@ -16,7 +16,7 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
     <div className="session-list">
       <div className="back-to">
         <button className="button" onClick={BackToStudentList}>
-          BackToSessionList
+          Back
         </button>
       </div>
       <div className="list">
