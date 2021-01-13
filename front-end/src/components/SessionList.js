@@ -26,7 +26,7 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
         {sessionList.map((item) => (
           <Table className="table">
             <tr onClick={() => onSessionClick(item.id)}>
-              <td>{item.id}</td>
+              {/* <td>{item.id}</td> */}
               <td>{item.name}</td>
               <td>
                 {" "}
