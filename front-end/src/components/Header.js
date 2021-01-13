@@ -14,8 +14,8 @@ const Header = ({ onLogout, user }) => {
         <img
           src="https://syllabus.codeyourfuture.io/img/logo.png"
           alt="cyf logo"
-          width="200px"
-          height="60px"
+          width="150px"
+          height="50px"
         />
       </div>
       <div>

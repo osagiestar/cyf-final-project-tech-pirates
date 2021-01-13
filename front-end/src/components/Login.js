@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import {  FormGroup } from "reactstrap";
+// import { FormGroup } from "reactstrap";
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
-  const onLogIn = ()=>{
-
+  const onLogIn = () => {
     fetch(`${process.env.REACT_APP_BACK_END_URL}/login`, {
       method: "POST",
       body: JSON.stringify({
         email: email,
         password: password,
+   
       }),
       headers: { "Content-Type": "application/json" },
     })
@@ -23,25 +22,26 @@ const Login = ({ onLogin }) => {
   };
   return (
     <div className="container">
-      <header>
-        <img
-          className="App-logo"
-          src="https://syllabus.codeyourfuture.io/img/logo.png"
-          alt="cyf_logo"
-        />
-      </header>
+      <div className="body">
+        <div>
+          <img
+            className="App-logo"
+            src="https://syllabus.codeyourfuture.io/img/logo.png"
+            alt="cyf_logo"
+          />
+        </div>
 
-      <div>
-        <h1>
-          <span className="font-weight-bold">Welcome!</span>
-        </h1>
-
-        <h3 className="first-line">
-          This is an attendance register for CYF classes
-        </h3>
-      </div>
-      <div>
-        <FormGroup>
+        <div>
+          <h1>
+            <span className="font-weight-bold">Welcome!</span>
+          </h1>
+        </div>
+        <div>
+          <h3 className="first-line">
+            This is an attendance register for CYF classes
+          </h3>
+        </div>
+        <div>
           <div className="email">
             <input
               type="email"
@@ -62,10 +62,11 @@ const Login = ({ onLogin }) => {
               required
             ></input>
           </div>
-        </FormGroup>
-        <button className="button" onClick={onLogIn}>
-          Login
-        </button>
+
+          <button className="button" onClick={onLogIn}>
+            Login
+          </button>
+        </div>
       </div>
     </div>
   );

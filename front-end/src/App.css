@@ -1,4 +1,21 @@
+html,
+.container,
 
+#app,
+#app>div {
+  height: 100vh;
+  min-height : 100vh;
+  background-color:rgb(246, 243, 243);
+}
+.body {
+  /* background-color: lightgray; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15%;
+
+}
 .App {
   
   display: flex;
@@ -35,14 +52,18 @@
     font-weight: bolder;
     border-radius: 5px;
     margin: 10px; 
+    border: none;
+    padding:14px 40px;
   }
   
 
 
 .App-logo {
-  margin-top: 100px;  
-  height: 20vmin;
-  width: 300px;
+    
+  height: 5vmin;
+  width: 150px;
+  height: 100%;
+  
 }
 
 .App-header {
@@ -60,19 +81,17 @@
   color: #61dafb;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+
 
 .button {
   background-color: red;
   border-radius: 5px;
   color: white;
   margin: 10px;
-
+  font-size: 24px;
+  border: none;
+  padding:14px 40px;
+  
 }
 
 
@@ -86,9 +105,11 @@
       
 }
 .table {
-  table-layout: auto;
   
- 
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  
 }
 
 .email{
@@ -101,10 +122,12 @@ select {
   width: 220px;
 }
 .Star{
-  background-color:red;
+  background-color:rosybrown;
   color:white;
   font-weight: bolder;  
   border-radius: 5px;
+  border: none;
+  padding: 10px 24px;
 }
 
 .Star-clicked {

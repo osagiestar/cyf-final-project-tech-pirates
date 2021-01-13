@@ -14,16 +14,14 @@ function App({ userId }) {
   };
 
   if (!user) {
-    return <Login onLogin={setUser} />;
+    return <Login onLogin={setUser} /> 
   }
-  console.log(user);
+  
   return (
     <>
       <Header onLogout={logout} user={user} />
       {user && user.type === "Student" && <Welcome userId={user.id} />}
-      {user && user.type === "Teacher" && (
-        <MentorContainer classId={user.class_id} />
-      )}
+      {user && user.type === "Teacher" && (<MentorContainer classId={user.class_id} />)}
       {user && user.type === "Admin" && <AdminWelcome />}
       <hr />
       <Footer />

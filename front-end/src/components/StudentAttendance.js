@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
-import { FcOk, FcCancel } from "react-icons/fc";
+import { FcOk, FcCancel, FcExpired } from "react-icons/fc";
 
 const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
   const [studentAttendance, setStudentAttendance] = useState([]);
@@ -9,7 +9,8 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
       .then((res) => res.json())
       .then((data) => {
         setStudentAttendance(data);
-      });
+        
+          });
   }, [classId, sessionId]);
   console.log(studentAttendance);
   return (
@@ -19,14 +20,34 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
       </button>
 
       <div>
-        {studentAttendance.map((item) => (
-          <Table className="table">
+        <Table className="table">
+          <thead>
             <tr>
-              <td>{item.name}</td>
-              <td>{item.attendance ? <FcOk /> : <FcCancel />}</td>
+              <th>students</th>
+              <th>Status</th>
+              <th>Attendance Date/Time</th>
             </tr>
-          </Table>
-        ))}
+          </thead>
+          <tbody>
+            {studentAttendance.map((item) => (
+              <tr>
+                <td>{item.name}</td>
+                <td>
+                  {item.attendance_date ? (
+                    item.late ? (
+                      <FcExpired />
+                    ) : (
+                      <FcOk />
+                    )
+                  ) : (
+                    <FcCancel />
+                  )}
+                </td>
+                <td>{item.attendance_date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </div>
     </div>
   );

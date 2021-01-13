@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Table from "react-bootstrap/Table";
-import { FcOk, FcCancel } from "react-icons/fc";
+import { FcOk, FcCancel, FcExpired } from "react-icons/fc";
 
 const SessionAttendance = ({
   classId,
@@ -14,25 +14,47 @@ const SessionAttendance = ({
     fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students/${objectId}`)
       .then((res) => res.json())
       .then((data) => {
-        setStudentSession(data);
-      });
-  });
+        setStudentSession(data);})
+        
+  },[classId,objectId]);
   console.log(studentSession);
   return (
     <div className="session-list">
       <button className="button" onClick={BackToStudentList}>
         BackToStudentList
       </button>
+
       <div>
-        
-        {studentSession.map((item) => (
-          <Table className="table">
+        <Table className="table">
+          <thead>
             <tr>
-              <td>{item.name}</td>
-              <td>{item.attendance_date ? <FcOk /> : <FcCancel />}</td>
+              <th>Sessions</th>
+              <th>Status</th>
+              <th>Attendance Date/Time</th>
+              <th>Session Date</th>
             </tr>
-          </Table>
-        ))}
+          </thead>
+          <tbody>
+            {studentSession.map((item) => (
+              <tr>
+                <td>{item.name}</td>
+                <td>
+                  {item.attendance_date ? (
+                    item.late ? (
+                      <FcExpired />
+                    ) : (
+                      <FcOk />
+                    )
+                  ) : (
+                    <FcCancel />
+                  )}
+                </td>
+                <td>{item.attendance_date}</td>
+                <td>{item.session_date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </div>
     </div>
   );

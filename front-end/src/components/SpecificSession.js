@@ -7,6 +7,7 @@ const SessionList = ({ sessionId, onGoBackClick, onSessionClick }) => {
       .then((res) => res.json())
       .then((data) => {
         setSessionList(data);
+    
       });
   }, []);
   console.log(sessionList);
