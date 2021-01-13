@@ -27,7 +27,7 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
           <Table className="table">
             <tr onClick={() => onSessionClick(item.id)}>
               {/* <td>{item.id}</td> */}
-              <td className="session-style">{item.name}</td>
+              <td className="list-style">{item.name}</td>
               <td>
                 {" "}
                 <FcRight />
