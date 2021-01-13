@@ -14,9 +14,10 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
   }, [classId, sessionId]);
   console.log(studentAttendance);
   return (
-    <div className="session-list">
+    <div className="back-to">
+
       <button className="button" onClick={BackToStudentList}>
-        BackToStudentList
+        Back
       </button>
 
       <div>
@@ -26,7 +27,7 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
               <th>students</th>
               <th>Status</th>
               <th>Attendance Date/Time</th>
-            </tr>
+ </tr>
           </thead>
           <tbody>
             {studentAttendance.map((item) => (
