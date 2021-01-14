@@ -39,15 +39,7 @@ const SessionAttendance = ({
               <tr>
                 <td>{item.name}</td>
                 <td>
-                  {item.attendance_date ? (
-                    item.late ? (
-                      <FcExpired />
-                    ) : (
-                      <FcOk />
-                    )
-                  ) : (
-                    <FcCancel />
-                  )}
+                  {item.attendance_date ? (item.late ? (<FcExpired />) : (<FcOk />)) : (<FcCancel />)}
                 </td>
                 <td>{item.attendance_date}</td>
                 <td>{item.session_date}</td>
