@@ -20,7 +20,7 @@ const Header = ({ onLogout, user }) => {
       </div>
       <div>
         {" "}
-        <button onClick={onLogout} className="Star">
+        <button onClick={onLogout} className="Star-logout">
           Logout
         </button>
       </div>
