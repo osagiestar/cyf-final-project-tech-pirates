@@ -20,7 +20,7 @@ const UserLogoutPage = () => {
             />
           </li>
           <li>
-            <Link to= {'/'} className="Star">Logout</Link>
+            <Link to= {'/'} className="Star-logout">Logout</Link>
           </li>
         </ul>
       </div>

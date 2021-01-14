@@ -16,7 +16,7 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
   return (
     <div className="session-list">
       <div className="back-to">
-        <button className="button" onClick={onGoBackClick}>
+        <button className="button-back" onClick={onGoBackClick}>
           Back
         </button>
       </div>

@@ -16,7 +16,7 @@ const StudentList = ({ classId, onGoBackClick, onStudentClick }) => {
   return (
     <div className="student-list">
       <div className="back-to">
-        <button className="button" onClick={onGoBackClick}>
+        <button className="button-back" onClick={onGoBackClick}>
           Back
         </button>
       </div>
