@@ -5,11 +5,10 @@ import { FcRight } from "react-icons/fc";
 const StudentList = ({ classId, onGoBackClick, onStudentClick }) => {
   const [list, setList] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students`)
+    fetch(`${REACT_APP_BACK_END_URL}/class/${classId}/students`)
       .then((res) => res.json())
       .then((data) => {
         setList(data);
-    
       });
   },[classId]);
   console.log(list);
@@ -17,7 +16,7 @@ const StudentList = ({ classId, onGoBackClick, onStudentClick }) => {
     <div className="student-list">
       <div>
         <button className="button" onClick={onGoBackClick}>
-          BackToWelcome
+          Back
         </button>
       </div>
       <div>

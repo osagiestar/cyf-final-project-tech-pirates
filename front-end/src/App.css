@@ -36,6 +36,12 @@ html,
   text-align: left;
 
 }
+.back-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  
+}
 .session-list {
   display: flex;
   flex-direction: column;
@@ -44,6 +50,12 @@ html,
   padding: 50px;
   text-align: left;
 
+}
+.list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .mentor-button {
