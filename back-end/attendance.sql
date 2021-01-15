@@ -241,3 +241,9 @@ INSERT INTO location(name) VALUES('London');
 INSERT INTO location(name) VALUES('WestMidland');
 INSERT INTO location(name) VALUES('Manchester');
 INSERT INTO location(name) VALUES('Scotland');
+
+
+select distinct users.name,(select to_char(attendance_date, 'yyyy-mm-dd hh:mi:ss') from attendance where 
+attendance.user_id = users.id and attendance.session_id = 18 limit 1) as attendance_date, 
+ (select attendance_date>session.session_date  from attendance where 
+attendance.user_id = users.id and attendance.session_id = 18 limit 1) as late from users,session where users.class_id=2 and user_type = 3;
