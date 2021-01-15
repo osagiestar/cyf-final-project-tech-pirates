@@ -5,44 +5,44 @@ import { FcRight } from "react-icons/fc";
 const StudentList = ({ classId, onGoBackClick, onStudentClick }) => {
   const [list, setList] = useState([]);
   useEffect(() => {
-    fetch(`${REACT_APP_BACK_END_URL}/class/${classId}/students`)
+    fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students`)
       .then((res) => res.json())
       .then((data) => {
         setList(data);
       });
-  },[classId]);
+  }, [classId]);
   console.log(list);
   return (
-    <div className="student-list">
+    <>
       <div className="back-to">
-        <button className="button-back" onClick={onGoBackClick}>
+        <button className="button" onClick={onGoBackClick}>
           Back
         </button>
       </div>
-
-      <div>
-        <Table className="table">
-          <thead>
-            <tr>
-              <th>Students</th>
-              <th>Go to Session</th>
-      </tr>
-          </thead>
-          <tbody>
-          
-            {list.map((item) => (
-              <tr onClick={() => onStudentClick(item.id)}>
-                <td>{item.name}</td>
-                <td>
-                  {" "}
-                  <FcRight />
-                </td>
+      <div className="list">
+        <div className="session-list">
+          <Table className="table">
+            <thead>
+              <tr>
+                <th>Students</th>
+                <th>Go to Session</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {list.map((item) => (
+                <tr onClick={() => onStudentClick(item.id)}>
+                  <td>{item.name}</td>
+                  <td>
+                    {" "}
+                    <FcRight />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

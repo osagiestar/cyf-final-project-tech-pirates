@@ -6,7 +6,7 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState("");
 
   const onLogIn = () => {
-    fetch(`${REACT_APP_BACK_END_URL}/login`, {
+    fetch(`${process.env.REACT_APP_BACK_END_URL}/login`, {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -20,52 +20,50 @@ const Login = ({ onLogin }) => {
       });
   };
   return (
-    <div className="container">
-      <div className="body">
-        <div>
-          <img
-            className="App-logo"
-            src="https://syllabus.codeyourfuture.io/img/logo.png"
-            alt="cyf_logo"
-          />
+    <div className="body">
+      <div>
+        <img
+          className="App-logo"
+          src="https://syllabus.codeyourfuture.io/img/logo.png"
+          alt="cyf_logo"
+        />
+      </div>
+
+      <div>
+        <h1>
+          <span className="font-weight-bold">Welcome!</span>
+        </h1>
+      </div>
+      <div>
+        <h3 className="first-line">
+          This is an attendance register for CYF classes
+        </h3>
+      </div>
+      <div>
+        <div className="email">
+          <input
+            type="email"
+            placeholder="user name or email"
+            value={email}
+            name="email"
+            onChange={(event) => setEmail(event.target.value)}
+            required
+          ></input>
+        </div>
+        <div className="email">
+          <input
+            type="Password"
+            placeholder="Password"
+            value={password}
+            name="password"
+            onChange={(event) => setPassword(event.target.value)}
+            required
+          ></input>
         </div>
 
-        <div>
-          <h1>
-            <span className="font-weight-bold">Welcome!</span>
-          </h1>
-        </div>
-        <div>
-          <h3 className="first-line">
-            This is an attendance register for CYF classes
-          </h3>
-        </div>
-        <div>
-          <div className="email">
-            <input
-              type="email"
-              placeholder="user name or email"
-              value={email}
-              name="email"
-              onChange={(event) => setEmail(event.target.value)}
-              required
-            ></input>
-          </div>
-          <div className="email">
-            <input
-              type="Password"
-              placeholder="Password"
-              value={password}
-              name="password"
-              onChange={(event) => setPassword(event.target.value)}
-              required
-            ></input>
-          </div>
-
-          <button className="button" onClick={onLogIn}>
-            Login
-          </button>
-        </div>
+        <button className="button" onClick={onLogIn}>
+          Login
+        </button>
       </div>
     </div>
   );
