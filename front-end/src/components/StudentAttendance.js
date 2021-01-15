@@ -5,7 +5,7 @@ import { FcOk, FcCancel, FcExpired } from "react-icons/fc";
 const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
   const [studentAttendance, setStudentAttendance] = useState([]);
   useEffect(() => {
-    fetch(`${REACT_APP_BACK_END_URL}/users/${classId}/${sessionId}`)
+    fetch(`http://localhost:3000/users/${classId}/${sessionId}`)
       .then((res) => res.json())
       .then((data) => {
         setStudentAttendance(data);
@@ -13,13 +13,15 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
   }, [classId, sessionId]);
   console.log(studentAttendance);
   return (
-    <div className="back-to">
+    <div className="list">
+      <div className="back-to">
 
       <button className="button" onClick={BackToStudentList}>
         Back
       </button>
+      </div>
 
-      <div>
+    <div className="session-list">
         <Table className="table">
           <thead>
             <tr>

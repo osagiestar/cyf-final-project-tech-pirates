@@ -6,7 +6,7 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState("");
 
   const onLogIn = () => {
-    fetch(`${REACT_APP_BACK_END_URL}/login`, {
+    fetch(`http://localhost:3000/login`, {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -20,7 +20,7 @@ const Login = ({ onLogin }) => {
       });
   };
   return (
-    <div className="container">
+    
       <div className="body">
         <div>
           <img
@@ -67,7 +67,7 @@ const Login = ({ onLogin }) => {
           </button>
         </div>
       </div>
-    </div>
+    
   );
 };
 

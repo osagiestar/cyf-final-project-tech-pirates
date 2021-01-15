@@ -5,7 +5,7 @@ import { FcRight } from "react-icons/fc";
 const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
   const [sessionList, setSessionList] = useState([]);
   useEffect(() => {
-    fetch(`${REACT_APP_BACK_END_URL}/class/${classId}/session`)
+    fetch(`http://localhost:3000/class/${classId}/session`)
       .then((res) => res.json())
       .then((data) => {
         setSessionList(data);
@@ -13,24 +13,22 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
   }, [classId]);
   console.log(sessionList);
   return (
-    <div className="session-list">
+    <div className="list">
       <div className="back-to">
-        <button className="button-back" onClick={onGoBackClick}>
+        <button className="button" onClick={onGoBackClick}>
           Back
         </button>
       </div>
 
-
-      <div>
+      <div className="session-list">
         <Table className="table">
           <thead>
             <tr>
               <th>Sessions</th>
               <th>Go to Student</th>
- </tr>
+            </tr>
           </thead>
           <tbody>
-          
             {sessionList.map((item) => (
               <tr onClick={() => onSessionClick(item.id)}>
                 <td>{item.name}</td>

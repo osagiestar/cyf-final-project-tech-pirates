@@ -23,7 +23,7 @@ function App({ userId }) {
       {user && user.type === "Student" && <Welcome userId={user.id} />}
       {user && user.type === "Teacher" && (<MentorContainer classId={user.class_id} />)}
       {user && user.type === "Admin" && <AdminWelcome />}
-      <hr />
+  
       <Footer />
     </>
   );
