@@ -3,29 +3,25 @@ import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import { FcOk, FcCancel, FcExpired } from "react-icons/fc";
 
-const SessionAttendance = ({
-  classId,
-  objectId,
-  BackToStudentList
-
-}) => {
+const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
   const [studentSession, setStudentSession] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students/${objectId}`)
+    fetch(`${REACT_APP_BACK_END_URL}/class/${classId}/students/${objectId}`)
       .then((res) => res.json())
       .then((data) => {
-        setStudentSession(data);})
-        
-  },[classId,objectId]);
+        setStudentSession(data);
+      });
+  }, [classId, objectId]);
   console.log(studentSession);
   return (
-    <div className="back-to">
+    <div className="list">
+      <div className="back-button">
+        <button className="button" onClick={BackToStudentList}>
+          Back
+        </button>
+      </div>
 
-      <button className="button" onClick={BackToStudentList}>
-        Back
-      </button>
-
-      <div>
+      <div className="session-list">
         <Table className="table">
           <thead>
             <tr>
@@ -51,7 +47,6 @@ const SessionAttendance = ({
                   )}
                 </td>
                 <td>{item.attendance_date}</td>
-                <td>{item.session_date}</td>
               </tr>
             ))}
           </tbody>

@@ -5,11 +5,10 @@ import { FcRight } from "react-icons/fc";
 const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
   const [sessionList, setSessionList] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/session`)
+    fetch(`${REACT_APP_BACK_END_URL}/class/${classId}/session`)
       .then((res) => res.json())
       .then((data) => {
         setSessionList(data);
-
       });
   }, [classId]);
   console.log(sessionList);
