@@ -27,8 +27,9 @@ const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
             <tr>
               <th>Sessions</th>
               <th>Status</th>
-              <th>Attendance Time</th>
-            </tr>
+              <th>Attendance Date/Time</th>
+              <th>Session Date</th>  
+                </tr>
           </thead>
           <tbody>
             {studentSession.map((item) => (
