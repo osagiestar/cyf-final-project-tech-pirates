@@ -14,34 +14,36 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
   console.log(sessionList);
   return (
     <>
-      <div>
-        <button className="back-to" onClick={onGoBackClick}>
+    <div className="back-to">
+        <button className="button" onClick={onGoBackClick}>
           Back
         </button>
       </div>
-      <div className="list">
-        <div className="session-list">
-          <Table className="table">
-            <thead>
-              <tr>
-                <th>Sessions</th>
-                <th>Go to Student</th>
+    <div className="list">
+      
+
+      <div className="session-list">
+        <Table className="table">
+          <thead>
+            <tr>
+              <th>Sessions</th>
+              <th>Go to Student</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sessionList.map((item) => (
+              <tr onClick={() => onSessionClick(item.id)}>
+                <td>{item.name}</td>
+                <td>
+                  {" "}
+                  <FcRight />
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {sessionList.map((item) => (
-                <tr onClick={() => onSessionClick(item.id)}>
-                  <td>{item.name}</td>
-                  <td>
-                    {" "}
-                    <FcRight />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </div>
+            ))}
+          </tbody>
+        </Table>
       </div>
+    </div>
     </>
   );
 };

@@ -15,7 +15,7 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
   return (
     <>
     <div className="back-to">
-        <button onClick={BackToStudentList}>
+        <button className="button" onClick={BackToStudentList}>
           Back
         </button>
       </div>

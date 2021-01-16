@@ -65,13 +65,10 @@ html,
 }
 
 .back-to {
-  background-color: rgb(238, 81, 81);
-  border-radius: 5px;
-  font-weight: bolder;
-  color: white;
-  font-size: 15px;
-  border: none;
-  margin-left: 140px;
+  display: flex;
+  flex-wrap: wrap;
+  padding:20px;
+  margin-left: 250px;
 }
 
 .list-style {
