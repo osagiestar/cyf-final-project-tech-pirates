@@ -16,8 +16,7 @@ const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
   };
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACK_END_URL}
-/users/${id}/class/session`)
+    fetch(`${process.env.REACT_APP_BACK_END_URL}/users/${id}/class/session`)
       .then((res) => res.json())
       .then((data) => {
         setSession(data);

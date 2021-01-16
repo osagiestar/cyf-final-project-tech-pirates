@@ -29,7 +29,8 @@ const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
               <tr>
                 <th>Sessions</th>
                 <th>Status</th>
-                <th>Attendance Date/Time</th>
+                <th>Attendance Date Time</th>
+                <th>Session Date Time</th>
               </tr>
             </thead>
             <tbody>
@@ -48,6 +49,7 @@ const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
                     )}
                   </td>
                   <td>{item.attendance_date}</td>
+                  <td>{item.session_date}</td>
                 </tr>
               ))}
             </tbody>

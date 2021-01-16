@@ -13,12 +13,14 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
   }, [classId, sessionId]);
   console.log(studentAttendance);
   return (
-    <div className="list">
-      <div className="back-to">
+    <>
+    <div className="back-to">
         <button className="button" onClick={BackToStudentList}>
           Back
         </button>
       </div>
+    <div className="list">
+      
 
       <div className="session-list">
         <Table className="table">
@@ -26,7 +28,8 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
             <tr>
               <th>students</th>
               <th>Status</th>
-              <th>Attendance Date/Time</th>
+              <th>Attendance Date Time</th>
+              <th>Session Date Time</th>
             </tr>
           </thead>
           <tbody>
@@ -45,12 +48,14 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
                   )}
                 </td>
                 <td>{item.attendance_date}</td>
+                <td>{item.session_date}</td>
               </tr>
             ))}
           </tbody>
         </Table>
       </div>
     </div>
+    </>
   );
 };
 export default StudentAttendance;

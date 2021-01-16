@@ -21,9 +21,7 @@ const SessionList = ({ sessionId, onGoBackClick, onSessionClick }) => {
         <div onClick={() => onSessionClick(item.id)}>
           <>
             <span value={item.id}>{item.name}</span>
-            {/* <button onClick={() => setStudentSession(item.name)}>
-            Show Attendance
-          </button> */}
+           
           </>
         </div>
       ))}
