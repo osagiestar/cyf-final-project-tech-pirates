@@ -13,12 +13,14 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
   }, [classId]);
   console.log(sessionList);
   return (
-    <div className="list">
-      <div className="back-to">
+    <>
+    <div className="back-to">
         <button className="button" onClick={onGoBackClick}>
           Back
         </button>
       </div>
+    <div className="list">
+      
 
       <div className="session-list">
         <Table className="table">
@@ -42,6 +44,7 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
         </Table>
       </div>
     </div>
+    </>
   );
 };
 

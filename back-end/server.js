@@ -93,7 +93,7 @@ app.get("/class/:classId/students/:studentId", function (req, res) {
   const studentId = req.params.studentId;
   pool
     .query(
-      "select session.name,(select to_char(attendance_date, 'yyyy-mm-dd hh:mi:ss') from attendance where attendance.user_id = $2 and attendance.session_id = session.id limit 1) as attendance_date, (select attendance_date>session.session_date  from attendance where attendance.user_id = $2 and attendance.session_id = session.id limit 1) as late from session where session.class_id=$1",
+      "select session.name,(select to_char(session_date, 'yyyy-mm-dd hh:mi:ss') from session limit 1) as session_date,(select to_char(attendance_date, 'yyyy-mm-dd hh:mi:ss') from attendance where attendance.user_id = $2 and attendance.session_id = session.id limit 1) as attendance_date, (select attendance_date>session.session_date  from attendance where attendance.user_id = $2 and attendance.session_id = session.id limit 1) as late from session where session.class_id=$1",
       [classId, studentId]
     )
     .then((result) => res.json(result.rows))
@@ -121,7 +121,7 @@ app.get("/class/:classId/session", function (req, res) {
     console.log(classId, sessionId);
 
     const attendanceSessionQuery =
-      "select distinct users.name,(select to_char(attendance_date, 'yyyy-mm-dd hh:mi:ss') from attendance where attendance.user_id = users.id and attendance.session_id = $2 limit 1) as attendance_date, (select attendance_date>session.session_date  from attendance where attendance.user_id = users.id and attendance.session_id = $2 limit 1) as late from users,session where users.class_id=$1 and user_type = 3;";
+      "select distinct users.name,(select to_char(session_date, 'yyyy-mm-dd hh:mi:ss') from session where  session.id =$2) as session_date,(select to_char(attendance_date, 'yyyy-mm-dd hh:mi:ss') from attendance where attendance.user_id = users.id and attendance.session_id = $2 limit 1) as attendance_date, (select attendance_date>session.session_date  from attendance where attendance.user_id = users.id and attendance.session_id = $2 limit 1) as late from users,session where users.class_id=$1 and user_type = 3;";
     pool
       .query(attendanceSessionQuery, [ classId, sessionId])
 
