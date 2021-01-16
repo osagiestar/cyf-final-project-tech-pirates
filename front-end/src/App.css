@@ -31,20 +31,6 @@ html,
   position: relative;
 }
 
-/* .student-list{
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  text-align: left;
-} */
-
-.back-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
 .session-list {
   display: flex;
   flex-direction: column;
@@ -69,6 +55,14 @@ html,
   flex-wrap: wrap;
   padding:20px;
   margin-left: 130px;
+  background-color: red;
+  border-radius: 5px;
+  font-weight: bolder;
+  color: white;
+  font-size: 15px;
+  border: none;
+  width: 120px;
+  height: 36px;
 }
 
 .list-style {
@@ -86,7 +80,7 @@ html,
   justify-content: center;
 }
 
-.mentor-button {
+/* .mentor-button {
   background-color: red;
   color: white;
   font-weight: bolder;
@@ -95,7 +89,7 @@ html,
   border: none;
   height: 40px;
   width: 120%;
-}
+} */
 
 .button-back {
   background-color: red;
