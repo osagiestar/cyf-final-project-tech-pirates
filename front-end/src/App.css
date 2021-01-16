@@ -54,15 +54,7 @@ html,
   display: flex;
   flex-wrap: wrap;
   padding:20px;
-  margin-left: 140px;
-  background-color: red;
-  border-radius: 5px;
-  font-weight: bolder;
-  color: white;
-  font-size: 15px;
-  border: none;
-  width: 120px;
-  height: 36px;
+  margin-left: 130px;
 }
 
 .list-style {
