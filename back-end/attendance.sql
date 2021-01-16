@@ -243,7 +243,12 @@ INSERT INTO location(name) VALUES('Manchester');
 INSERT INTO location(name) VALUES('Scotland');
 
 
-select distinct users.name,(select to_char(attendance_date, 'yyyy-mm-dd hh:mi:ss') from attendance where 
+select distinct users.name,(select to_char(session_date, 'yyyy-mm-dd hh:mi:ss') from session where  session.id =18) as session_date,(select to_char(attendance_date, 'yyyy-mm-dd hh:mi:ss') from attendance where 
 attendance.user_id = users.id and attendance.session_id = 18 limit 1) as attendance_date, 
  (select attendance_date>session.session_date  from attendance where 
 attendance.user_id = users.id and attendance.session_id = 18 limit 1) as late from users,session where users.class_id=2 and user_type = 3;
+
+select session.name,(select to_char(session_date, 'yyyy-mm-dd hh:mi:ss') from session where  session.id = 17) 
+as session_date,(select to_char(attendance_date, 'yyyy-mm-dd hh:mi:ss') from attendance where attendance.user_id = 10 
+and attendance.session_id = session.id limit 1) as attendance_date, (select attendance_date>session.session_date  from attendance
+ where attendance.user_id = 10 and attendance.session_id = session.id limit 1) as late from session where session.class_id=2;
