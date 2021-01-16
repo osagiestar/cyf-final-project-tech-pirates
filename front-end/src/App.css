@@ -1,21 +1,23 @@
 html,
 .container,
+
 #app,
-#app > div {
+#app>div {
   height: 100vh;
-  min-height: 100vh;
-  background-color: lightgray;
-  padding: 10px 40px;
+  min-height : 100vh;
+  background-color:lightgray;
+  padding:10px 40px;
   margin: 2px 50px;
 }
 
 .body {
-  background-color: lightgray;
+   background-color: lightgray; 
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 15%;
+
 }
 .App {
   display: flex;
@@ -24,79 +26,103 @@ html,
   align-items: center;
   justify-content: center;
   text-align: center;
-
+ 
   margin: 0 auto;
   padding: 30px 20px;
   min-height: 84.6vh;
   position: relative;
 }
 
-.session-list {
+
+/* .student-list{
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   padding: 50px;
   text-align: left;
+} */
+
+
+.back-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  
 }
-*/ .font-weight-bold {
+.session-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  padding: 50px;
+  text-align: left;
+} */
+
+
+.font-weight-bold{
   font-size: 23px;
 }
-.first-line {
-  font-size: 17px;
+.first-line{
+  font-size:17px ;
 }
 .add-color {
-  background-color: rgb(221, 220, 211);
-  font-size: 30px;
+background-color: rgb(221, 220, 211);
+font-size: 30px;
 }
 
 .back-to {
+  /* margin-left: 270px;
+  margin-top: 20px;
+  margin-bottom: 20px; */
+  /* flex-direction: column; */
+  /* align-items: left */
   display: flex;
-  flex-wrap: wrap;
-  padding:20px;
-  margin-left: 130px;
+  align-content:flex-end;
 }
 
 .list-style {
   background-color: rgb(245, 237, 241);
   width: 500px;
-  height: 30px;
+  height: 30px;  
   padding: 10px;
   border: 1px solid red;
   box-sizing: border-box;
 }
-.list {
+.list{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* .mentor-button {
-  background-color: red;
-  color: white;
-  font-weight: bolder;
-  border-radius: 5px;
-  margin: 10px;
-  border: none;
-  height: 40px;
-  width: 120%;
-} */
-
-.button-back {
-  background-color: red;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  border: none;
-  height: 28px;
-  width: 90px;
+.mentor-button {
+    background-color:red; 
+    color:white;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin: 10px; 
+    border: none;
+    height: 40px;
+    width: 120%;
+  }
+  
+  .button-back {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    height: 28px;
+    width: 90px;
 }
 
 .App-logo {
+    
   height: 5vmin;
   width: 150px;
   height: 100%;
+  
 }
 
 .App-header {
@@ -123,23 +149,28 @@ html,
   font-size: 15px;
   border: none;
   width: 120px;
-  height: 36px;
-}
+  height: 36px;  
+  }
+
 
 .nav {
-  background-color: aliceblue;
+  background-color: aliceblue;  
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content:space-evenly;
+  align-items: center;  
+
+      
 }
 .table {
+  
   display: flex;
   flex-direction: column;
   justify-content: left;
+  
 }
 
-.email {
+.email{
   margin: 10px;
 }
 .Space {
@@ -148,10 +179,10 @@ html,
 select {
   width: 220px;
 }
-.Star {
-  background-color: red;
-  color: white;
-  font-weight: bolder;
+.Star{
+  background-color:red;
+  color:white;
+  font-weight: bolder;  
   border-radius: 5px;
   border: none;
   padding: 10px 24px;
@@ -163,35 +194,37 @@ select {
   font-weight: bolder;
   border-radius: 5px;
 }
-.Star-logout {
-  background-color: crimson;
-  color: white;
-  font-weight: bolder;
+.Star-logout{
+  background-color:crimson;
+  color:white;
+  font-weight: bolder;  
   border-radius: 5px;
   border: none;
   padding: 3px 12px;
   font-size: 12px;
 }
-.option {
+.option{
   box-sizing: 40px;
   margin-top: 10px;
 }
-hr {
+hr{
   margin-top: 0;
-  margin-bottom: 0;
-  border: 0;
-  border-top: 2px solid #6c757d;
+    margin-bottom: 0;
+    border: 0;
+    border-top: 2px solid #6c757d;
 }
 
 .footer {
   background-color: aliceblue;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content:space-evenly;
   align-items: center;
+  
+ 
 }
 
-.footer_link-item {
+.footer_link-item{
   color: #4a5158;
   text-decoration: none;
   background-color: transparent;
@@ -201,11 +234,11 @@ hr {
   color: red;
 }
 
-.copyright {
+.copyright{
   margin-top: 10px;
   font-size: 13px;
 }
-.footer_items {
+.footer_items{
   display: flex;
   list-style: none;
   justify-content: space-around;
