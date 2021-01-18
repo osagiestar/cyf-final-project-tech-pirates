@@ -8,7 +8,6 @@ import {
 import {CgWebsite} from "react-icons/cg"
 import { FcDocument } from "react-icons/fc";
 const Footer = () => {
-     
   return (
     <div className="footer">
       <div>
@@ -55,7 +54,7 @@ const Footer = () => {
               href="https://www.facebook.com/codeyourfuture.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="footer_link-item"
+              className="footer_link-fb"
             >
               <FaFacebookF />
             </a>
@@ -65,7 +64,7 @@ const Footer = () => {
               href="https://www.instagram.com/codeyourfuture_"
               target="_blank"
               rel="noopener noreferrer"
-              className="footer_link-item"
+              className="footer_link-insta"
             >
               <FaInstagram />
             </a>
@@ -75,7 +74,7 @@ const Footer = () => {
               href="https://twitter.com/CodeYourFuture"
               target="_blank"
               rel="noopener noreferrer"
-              className="footer_link-item"
+              className="footer_link-twitter"
             >
               <FaTwitter />
             </a>
