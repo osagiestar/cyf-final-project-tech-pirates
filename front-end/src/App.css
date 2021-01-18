@@ -1,54 +1,110 @@
+html,
+.container,
+#app,
+#app > div {
+  height: 100vh;
+  min-height: 100vh;
+  background-color: lightgray;
+  padding: 10px 40px;
+  margin: 2px 50px;
+}
 
-.App {
-  
+.body {
+  background-color: lightgray;
   display: flex;
-  
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15%;
+}
+.App {
+  display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 50px;
   text-align: center;
- 
+
+  margin: 0 auto;
+  padding: 30px 20px;
+  min-height: 84.6vh;
+  position: relative;
 }
-.student-list{
+
+.back-button {
   display: flex;
-
   flex-direction: column;
- 
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  text-align: left;
-
+  justify-content: flex-start;
 }
+
 .session-list {
   display: flex;
-
   flex-direction: column;
-
-   align-items: center; 
+  align-items: center;
   justify-content: center;
-  padding: 50px;
   text-align: left;
+}
+*/ .font-weight-bold {
+  font-size: 23px;
+}
 
+.first-line {
+  font-size: 17px;
+}
+
+.add-color {
+  background-color: rgb(221, 220, 211);
+  font-size: 30px;
+}
+
+.back-to {
+  display: flex;
+  flex-wrap: wrap;
+  padding:20px;
+  margin-left: 185px;
+}
+
+.list-style {
+  background-color: rgb(245, 237, 241);
+  width: 500px;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .mentor-button {
-    background-color:red; 
-    color:white;
-    font-weight: bolder;
-    border-radius: 5px;
-    margin: 10px; 
-  }
-  
+  background-color: red;
+  color: white;
+  font-weight: bolder;
+  border-radius: 5px;
+  margin: 10px;
+  border: none;
+  height: 40px;
+  width: 120%;
+}
 
+.button-back {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  height: 28px;
+  width: 90px;
+}
 
 .App-logo {
-  margin-top: 100px;
-  
-  height: 20vmin;
-  width: 300px;
+  height: 5vmin;
+  width: 150px;
+  height: 100%;
 }
 
 .App-header {
@@ -66,54 +122,52 @@
   color: #61dafb;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
 .button {
   background-color: red;
   border-radius: 5px;
+  font-weight: bolder;
   color: white;
   margin: 10px;
-
+  font-size: 15px;
+  border: none;
+  width: 120px;
+  height: 36px;
 }
-
 
 .nav {
-  /* background-color: darkgray; */
+  background-color: aliceblue;
   display: flex;
-  justify-content:center;
-   align-items: center; 
-
-  
-  margin:100px;  
-  width: auto;
-
-  
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px
 }
-.email{
+
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.email {
   margin: 10px;
 }
-
-
 
 .Space {
   margin: 30px;
 }
+
 select {
   width: 220px;
 }
 
-
-
-.Star{
-  background-color:red;
-  color:white;
- font-weight: bolder;  
- border-radius: 5px;
+.Star {
+  background-color: red;
+  color: white;
+  font-weight: bolder;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 24px;
 }
 
 .Star-clicked {
@@ -122,8 +176,50 @@ select {
   font-weight: bolder;
   border-radius: 5px;
 }
-.option{
+.Star-logout {
+  background-color: crimson;
+  color: white;
+  font-weight: bolder;
+  border-radius: 5px;
+  border: none;
+  padding: 3px 12px;
+  font-size: 12px;
+}
+.option {
   box-sizing: 40px;
   margin-top: 10px;
 }
+hr {
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 0;
+  border-top: 2px solid #6c757d;
+}
 
+.footer {
+  background-color: aliceblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer_link-item {
+  color: #4a5158;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.footer_link-item:hover {
+  color: red;
+}
+
+.copyright {
+  margin-top: 10px;
+  font-size: 13px;
+}
+.footer_items {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
