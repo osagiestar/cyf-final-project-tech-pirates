@@ -31,34 +31,27 @@ html,
   position: relative;
 }
 
-/* .student-list{
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  text-align: left;
-} */
-
 .back-button {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
+
 .session-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px;
   text-align: left;
 }
 */ .font-weight-bold {
   font-size: 23px;
 }
+
 .first-line {
   font-size: 17px;
 }
+
 .add-color {
   background-color: rgb(221, 220, 211);
   font-size: 30px;
@@ -68,7 +61,7 @@ html,
   display: flex;
   flex-wrap: wrap;
   padding:20px;
-  margin-left: 250px;
+  margin-left: 185px;
 }
 
 .list-style {
@@ -79,6 +72,7 @@ html,
   border: 1px solid red;
   box-sizing: border-box;
 }
+
 .list {
   display: flex;
   flex-direction: column;
@@ -146,7 +140,9 @@ html,
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  height: 100px
 }
+
 .table {
   display: flex;
   flex-direction: column;
@@ -156,12 +152,15 @@ html,
 .email {
   margin: 10px;
 }
+
 .Space {
   margin: 30px;
 }
+
 select {
   width: 220px;
 }
+
 .Star {
   background-color: red;
   color: white;
