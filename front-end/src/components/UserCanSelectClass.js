@@ -25,17 +25,19 @@ const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
   console.log(session);
   return (
     <>
-      <div className="App">
-        <h2>Please sign into the session you want to attend</h2>
-        <h3>choose a session:</h3>
-        <div>
+      <div>
+        <h2 className="select-class">
+          Please sign into the session you want to attend
+        </h2>
+        <h3 className="select-class">Choose a Session:</h3>
+        <div className="select-option">
           <select
             value={sessionSelect}
             onChange={(event) => setSessionSelect(event.target.value)}
             disabled={clicked}
           >
-            <option className="option" value={-1} disabled>
-              Please select session
+            <option value={-1} disabled>
+              Please select a session
             </option>
             {session.map((item) => (
               <option value={item.id}>{item.name}</option>
