@@ -17,6 +17,7 @@ html,
   text-align: center;
   padding: 15%;
 }
+
 .App {
   display: flex;
   flex-direction: column;
@@ -43,6 +44,7 @@ html,
   justify-content: center;
   text-align: left;
 }
+
 */ .font-weight-bold {
   font-size: 23px;
 }
@@ -79,15 +81,22 @@ html,
   justify-content: center;
 }
 
+.App-mentor {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 84.6vh;
+}
+
 .mentor-button {
   background-color: red;
   color: white;
   font-weight: bolder;
   border-radius: 5px;
-  margin: 10px;
+  margin: 15px;
   border: none;
   height: 40px;
-  width: 120%;
+  width: auto
 }
 
 .button-back {
@@ -180,6 +189,7 @@ select {
   font-weight: bolder;
   border-radius: 5px;
 }
+
 .Star-logout {
   background-color: crimson;
   color: white;
@@ -212,6 +222,16 @@ hr {
   justify-content: center;
   text-align: center;
   margin-top: 80px;
+}
+
+.textColor-mentor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 40px;
+  font-size: 20px;
+  color: rgb(121, 145, 224)
 }
 
 .login-header {
