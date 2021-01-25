@@ -6,9 +6,7 @@ import { FcOk, FcCancel, FcExpired } from "react-icons/fc";
 const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
   const [studentSession, setStudentSession] = useState([]);
   useEffect(() => {
-    fetch(
-      `${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students/${objectId}`
-    )
+    fetch(`http://localhost:3000/class/${classId}/students/${objectId}`)
       .then((res) => res.json())
       .then((data) => {
         setStudentSession(data);
@@ -29,7 +27,8 @@ const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
               <tr>
                 <th>Sessions</th>
                 <th>Status</th>
-                <th>Attendance Date/Time</th>
+                <th>Attendance Date Time</th>
+                <th>Session Date Time</th>
               </tr>
             </thead>
             <tbody>
@@ -48,6 +47,7 @@ const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
                     )}
                   </td>
                   <td>{item.attendance_date}</td>
+                  <td>{item.session_date}</td>
                 </tr>
               ))}
             </tbody>
