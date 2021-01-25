@@ -24,7 +24,6 @@ html,
   align-items: center;
   justify-content: center;
   text-align: center;
-
   margin: 0 auto;
   padding: 30px 20px;
   min-height: 84.6vh;
@@ -189,6 +188,7 @@ select {
 .option {
   box-sizing: 40px;
   margin-top: 10px;
+  
 }
 
 hr {
@@ -196,6 +196,27 @@ hr {
   margin-bottom: 0;
   border: 0;
   border-top: 2px solid #6c757d;
+}
+
+.welcome-header {
+  display: flex;
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* position: relative; */
+  margin-top: 80px;
+}
+
+.login-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 40px;
+  font-size: 20px;
+  color:rgb(201, 76, 76)
 }
 
 .footer {
