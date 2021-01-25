@@ -16,12 +16,6 @@ const pool = new Pool({
   ssl: {
     rejectUnauthorized: false,
   },
-  // user: "S225693",
-
-  // host: "localhost",
-  // database: "attendance",
-  // password: process.env.DB_PASSWORD,
-  // port: 5432,
 });
 
 /* All Users Login API */
