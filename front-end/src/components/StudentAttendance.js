@@ -26,7 +26,7 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
         <Table className="table">
           <thead>
             <tr>
-              <th>students</th>
+              <th>Students</th>
               <th>Status</th>
               <th>Attendance Date Time</th>
               <th>Session Date Time</th>
