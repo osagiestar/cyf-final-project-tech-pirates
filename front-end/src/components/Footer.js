@@ -1,11 +1,6 @@
 import React from "react";
-import {
-  FaFacebookF,
-  FaGit,
-  FaInstagram,
-  FaTwitter,
-  } from "react-icons/fa";
-import {CgWebsite} from "react-icons/cg"
+import { FaFacebookF, FaGit, FaInstagram, FaTwitter } from "react-icons/fa";
+import { CgWebsite } from "react-icons/cg";
 import { FcDocument } from "react-icons/fc";
 const Footer = () => {
   return (

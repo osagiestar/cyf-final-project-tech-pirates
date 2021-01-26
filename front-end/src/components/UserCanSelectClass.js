@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
+
 import 'moment-timezone';
+
 
 const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
   const [session, setSession] = useState([]);
   const [sessionSelect, setSessionSelect] = useState(-1);
   const [clicked, setClicked] = useState(false);
   console.log(sessionSelect);
+
   const onclick = () => {
     fetch(`${process.env.REACT_APP_BACK_END_URL}/users/${id}/class/session`, {
       method: "POST",
