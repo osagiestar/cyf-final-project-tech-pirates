@@ -24,17 +24,21 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
           <Table className="table">
             <thead>
               <tr>
-                <th>students</th>
-                <th>Status</th>
-                <th>Attendance DateTime</th>
-                <th>Session Date Time</th>
+
+                <th className="list-table-attend">Students</th>
+                <th className="status-column">Status</th>
+                <th className="list-table-attend">Attendance Date Time</th>
+                <th className="list-table-attend">Session Date Time</th>
+
               </tr>
             </thead>
             <tbody>
               {studentAttendance.map((item) => (
                 <tr>
-                  <td>{item.name}</td>
-                  <td>
+
+                  <td className="list-style-attend">{item.name}</td>
+                  <td className="status-column-arrow">
+
                     {item.attendance_date ? (
                       item.late ? (
                         <FcExpired />
@@ -45,9 +49,10 @@ const StudentAttendance = ({ classId, sessionId, BackToStudentList }) => {
                       <FcCancel />
                     )}
                   </td>
-                  <td>{item.attendance_date}</td>
-                  {"   "}
-                  <td>{item.session_date}</td>
+
+                  <td className="list-style-attend">{item.attendance_date}</td>
+                  <td className="list-style-attend"> {item.session_date}</td>
+
                 </tr>
               ))}
             </tbody>

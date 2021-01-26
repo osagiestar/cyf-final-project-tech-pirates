@@ -24,14 +24,14 @@ const StudentList = ({ classId, onGoBackClick, onStudentClick }) => {
           <Table className="table">
             <thead>
               <tr>
-                <th>Students</th>
-                <th>Go to Session</th>
+                <th className="list-table-head">Students</th>
+                <th className="list-table-head">Go to Session</th>
               </tr>
             </thead>
             <tbody>
               {list.map((item) => (
                 <tr onClick={() => onStudentClick(item.id)}>
-                  <td>{item.name}</td>
+                  <td className="list-style">{item.name}</td>
                   <td>
                     {" "}
                     <FcRight />

@@ -4,12 +4,12 @@ import UserCanSelectClass from "./UserCanSelectClass";
 
 const Welcome = ({ userId }) => {
   return (
-    <div className="App">
+    <div>
       <div>
-        <h2>Welcome to the class</h2>
+        <h2 className="welcome-header">Welcome to the class</h2>
       </div>
       <div>
-        <p>You are now logged in as a Student </p>
+        <p className="login-header">You are now logged in as a Student </p>
       </div>
       <div>
         <UserCanSelectClass id={userId} />

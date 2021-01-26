@@ -24,14 +24,14 @@ const SessionList = ({ classId, onGoBackClick, onSessionClick }) => {
           <Table className="table">
             <thead>
               <tr>
-                <th>Sessions</th>
-                <th>Go to Student</th>
+                <th className="list-table-head">Sessions</th>
+                <th className="list-table-head">Go to Student</th>
               </tr>
             </thead>
             <tbody>
               {sessionList.map((item) => (
                 <tr onClick={() => onSessionClick(item.id)}>
-                  <td>{item.name}</td>
+                  <td className="list-style">{item.name}</td>
                   <td>
                     {" "}
                     <FcRight />

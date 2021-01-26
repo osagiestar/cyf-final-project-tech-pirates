@@ -4,9 +4,7 @@ import { FcOk, FcCancel, FcExpired } from "react-icons/fc";
 const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
   const [studentSession, setStudentSession] = useState([]);
   useEffect(() => {
-    fetch(
-      `${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students/${objectId}`
-    )
+    fetch(`${process.env.REACT_APP_BACK_END_URL}/class/${classId}/students/${objectId}`)
       .then((res) => res.json())
       .then((data) => {
         setStudentSession(data);
@@ -25,17 +23,17 @@ const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
           <Table className="table">
             <thead>
               <tr>
-                <th>Sessions</th>
-                <th>Status</th>
-                <th>Attendance DateTime</th>
-                <th>Session DateTime</th>
+                <th className="list-table-attend">Sessions</th>
+                <th className="status-column">Status</th>
+                <th className="list-table-attend">Attendance Date/Time</th>
+                <th className="list-table-attend">Session Date/Time</th>
               </tr>
             </thead>
             <tbody>
               {studentSession.map((item) => (
                 <tr>
-                  <td>{item.name}</td>
-                  <td>
+                  <td className="list-style-attend">{item.name}</td>
+                  <td className="status-column-arrow">
                     {item.attendance_date ? (
                       item.late ? (
                         <FcExpired />
@@ -46,9 +44,8 @@ const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
                       <FcCancel />
                     )}
                   </td>
-                  <td>{item.attendance_date}</td>
-                  {"    "}
-                  <td>{item.session_date}</td>
+                  <td className="list-style-attend">{item.attendance_date}</td>
+                  <td className="list-style-attend">{item.session_date}</td>
                 </tr>
               ))}
             </tbody>
