@@ -29,18 +29,15 @@ html,
   justify-content: right;
   align-items: flex-end;
   text-align: center;
-  margin-right: 200px
+  margin-right: 260px
 }
 
 .first-line {
   display: flex;
-  /* align-items: center; */
-  /* justify-content: center; */
   text-align: center;
   margin-bottom: 25px;
   margin-right: 10px;
   font-size: 25px;
-  /* font-size: 17px; */
 }
 
 .App {
