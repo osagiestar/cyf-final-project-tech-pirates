@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
+import 'moment-timezone';
 
 const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
   const [session, setSession] = useState([]);
@@ -36,7 +38,7 @@ const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
             disabled={clicked}
           >
             <option value={-1} disabled>
-             Select a session
+              Select a session
             </option>
             {session.map((item) => (
               <option value={item.id}>{item.name}</option>
@@ -48,7 +50,12 @@ const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
             className={clicked ? "Star-clicked" : "Star"}
             onClick={onclick}
           >
-            {clicked ? "Attending" : "Log into this class"}
+            {clicked ? "Attending" : "Log into this class"}{" "}
+            {clicked
+              ? "Attending"
+                ? moment().format("DD-MM-YYYY hh:mm:ssa")
+                : moment().format("DD-MM-YYYY hh:mm:ssa")
+              : ""}
           </button>
         </div>
       </div>
