@@ -5,10 +5,8 @@ import StudentList from "./StudentList";
 import SessionList from "./SessionList";
 import StudentAttendance from "./StudentAttendance";
 
-
 const MentorContainer = ({ classId }) => {
   const [viewType, setViewType] = useState(0);
-  // const [sessionViewType, setSessionViewType] = useState(0);
   const [objectId, setObjectId] = useState(0);
   console.log(objectId);
   const containerView = () => {
@@ -42,7 +40,7 @@ const MentorContainer = ({ classId }) => {
     if (viewType === 2 && !objectId) {
       return (
         <SessionList
-           onSessionClick={setObjectId}
+          onSessionClick={setObjectId}
           classId={classId}
           onGoBackClick={() => setViewType(0)}
         />
@@ -54,7 +52,6 @@ const MentorContainer = ({ classId }) => {
           classId={classId}
           sessionId={objectId}
           BackToStudentList={() => setObjectId(0)}
-          
         />
       );
     }

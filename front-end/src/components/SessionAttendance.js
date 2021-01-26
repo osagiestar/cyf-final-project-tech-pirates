@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import Table from "react-bootstrap/Table";
 import { FcOk, FcCancel, FcExpired } from "react-icons/fc";
-
 const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
   const [studentSession, setStudentSession] = useState([]);
   useEffect(() => {
@@ -29,8 +27,8 @@ const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
               <tr>
                 <th>Sessions</th>
                 <th>Status</th>
-                <th>Attendance Date Time</th>
-                <th>Session Date Time</th>
+                <th>Attendance DateTime</th>
+                <th>Session DateTime</th>
               </tr>
             </thead>
             <tbody>
@@ -49,6 +47,7 @@ const SessionAttendance = ({ classId, objectId, BackToStudentList }) => {
                     )}
                   </td>
                   <td>{item.attendance_date}</td>
+                  {"    "}
                   <td>{item.session_date}</td>
                 </tr>
               ))}

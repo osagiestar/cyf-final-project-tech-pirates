@@ -1,7 +1,5 @@
 import React from "react";
-
-
-const MentorWelcome = ({ onCheckStudentClick,onCheckSessionClick }) => {
+const MentorWelcome = ({ onCheckStudentClick, onCheckSessionClick }) => {
   return (
     <div className="App">
       <div>

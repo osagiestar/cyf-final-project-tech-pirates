@@ -21,7 +21,6 @@ const SessionList = ({ sessionId, onGoBackClick, onSessionClick }) => {
         <div onClick={() => onSessionClick(item.id)}>
           <>
             <span value={item.id}>{item.name}</span>
-           
           </>
         </div>
       ))}

@@ -1,6 +1,6 @@
 import React from "react";
 
-import UserCanSelectClass from "./UserCanSelectClass"
+import UserCanSelectClass from "./UserCanSelectClass";
 
 const Welcome = ({ userId }) => {
   return (
@@ -12,7 +12,7 @@ const Welcome = ({ userId }) => {
         <p>You are now logged in as a Student </p>
       </div>
       <div>
-        <UserCanSelectClass id={userId}/>
+        <UserCanSelectClass id={userId} />
       </div>
     </div>
   );

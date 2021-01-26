@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { FaRegUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -20,11 +20,13 @@ const UserLogoutPage = () => {
             />
           </li>
           <li>
-            <Link to= {'/'} className="Star-logout">Logout</Link>
+            <Link to={"/"} className="Star-logout">
+              Logout
+            </Link>
           </li>
         </ul>
       </div>
-      
+
       <div>
         <h2> Welcome to the class! </h2>
         <p>
@@ -32,9 +34,8 @@ const UserLogoutPage = () => {
           We hope you enjoy coding with us and learn loads in this session{" "}
         </p>
       </div>
-    </div> 
-    );
-}
-
+    </div>
+  );
+};
 
 export default UserLogoutPage;

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
+import "moment-timezone";
 
 const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
   const [session, setSession] = useState([]);
   const [sessionSelect, setSessionSelect] = useState(-1);
   const [clicked, setClicked] = useState(false);
   console.log(sessionSelect);
+
   const onclick = () => {
     fetch(`${process.env.REACT_APP_BACK_END_URL}/users/${id}/class/session`, {
       method: "POST",
@@ -47,7 +50,12 @@ const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
             className={clicked ? "Star-clicked" : "Star"}
             onClick={onclick}
           >
-            {clicked ? "Attending" : "Log into this class"}
+            {clicked ? "Attending" : "Log into this class"}{" "}
+            {clicked
+              ? "Attending"
+                ? moment().format("DD-MM-YYYY hh:mm:ssa")
+                : moment().format("DD-MM-YYYY hh:mm:ssa")
+              : ""}
           </button>
         </div>
       </div>
