@@ -29,7 +29,6 @@ const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
         <h2 className="select-class">
           Please sign into the session you want to attend
         </h2>
-        <h3 className="select-class">Choose a Session:</h3>
         <div className="select-option">
           <select
             value={sessionSelect}
@@ -37,7 +36,7 @@ const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
             disabled={clicked}
           >
             <option value={-1} disabled>
-              Please select a session
+             Select a session
             </option>
             {session.map((item) => (
               <option value={item.id}>{item.name}</option>
