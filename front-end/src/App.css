@@ -10,15 +10,11 @@ html,
 }
 
 .body {
-  background-image: url("https://www.shrmpro.com/wp-content/uploads/2019/05/Attendance-Management-background.png"), linear-gradient(to left, rgba(0, 0, 0, 0.253), rgba(0, 0, 0, 0.336));
-  /* background-color: lightgray; */
- background-repeat: no-repeat;
- /* position: relative; */
- background-size: auto;
+  background-image: url("https://www.shrmpro.com/wp-content/uploads/2019/05/Attendance-Management-background.png");
+  background-repeat: no-repeat;
+  background-size: auto;
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  text-align: center; */
   padding-top: 5%;
   min-height: 84.6vh;
 }
