@@ -6,7 +6,8 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState("");
 
   const onLogIn = () => {
-    fetch(`${process.env.REACT_APP_BACK_END_URL}/login`, {
+    // ${process.env.REACT_APP_BACK_END_URL}
+    fetch(`http://localhost:3000/login`, {
       method: "POST",
       body: JSON.stringify({
         email: email,

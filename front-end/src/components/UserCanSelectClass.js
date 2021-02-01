@@ -8,7 +8,7 @@ const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
   const [clicked, setClicked] = useState(false);
   console.log(sessionSelect);
   const onclick = () => {
-    fetch(`${process.env.REACT_APP_BACK_END_URL}/users/${id}/class/session`, {
+    fetch(`http://localhost:3000/users/${id}/class/session`, {
       method: "POST",
       body: JSON.stringify({
         sessionId: sessionSelect,
@@ -18,7 +18,7 @@ const UserCanSelectClass = ({ onLogout, id, setSessions }) => {
   };
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACK_END_URL}/users/${id}/class/session`)
+    fetch(`http://localhost:3000/users/${id}/class/session`)
       .then((res) => res.json())
       .then((data) => {
         setSession(data);

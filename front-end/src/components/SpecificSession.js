@@ -3,9 +3,7 @@ import React, { useState, useEffect } from "react";
 const SessionList = ({ sessionId, onGoBackClick, onSessionClick }) => {
   const [sessionList, setSessionList] = useState([]);
   useEffect(() => {
-    fetch(
-      `${process.env.REACT_APP_BACK_END_URL}/users/class/${sessionId}/students`
-    )
+    fetch(`http://localhost:3000/users/class/${sessionId}/students`)
       .then((res) => res.json())
       .then((data) => {
         setSessionList(data);
